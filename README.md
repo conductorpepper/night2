@@ -14,3 +14,4 @@ This flake exports a few packages and modules (quality varies) that are not pres
 
 * [NotAShelf/nyx](https://github.com/NotAShelf/nyx)
 * [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
+* [ryan4yin/nix-config](https://github.com/ryan4yin/nix-config)
