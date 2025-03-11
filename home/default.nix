@@ -1,6 +1,7 @@
 {self, ...}: {
   imports = [
-    self.nixosModules.swww
+    self.homeModules.swww
+    self.homeModules.exssd
     ./dev.nix
     ./productivity.nix
   ];

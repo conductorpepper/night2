@@ -1,1 +1,3 @@
-{}
+{
+  utils.exssd.enable = true;
+}

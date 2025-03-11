@@ -67,5 +67,7 @@
     gh
     wget
     just
+
+    kilall
   ];
 }

@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # backlight
   hardware.brillo.enable = true;
 
@@ -7,6 +12,10 @@
   networking.wireless = {
     enable = true;
     userControlled.enable = true;
+  };
+  services.gnome = {
+    glib-networking.enable = true;
+    at-spi2-core.enable = true;
   };
 
   # bluetooth
@@ -34,6 +43,22 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  # storage
+  services.udisks2.enable = true;
+  programs.gnome-disks.enable = true;
+
+  # touch
+  services.touchegg.enable = true;
+
+  # power
+  services.upower.enable = lib.mkDefault config.powerManagement.enable;
+
+  # input
+  services.libinput.enable = true;
+
+  # color
+  services.colord.enable = true;
 
   # printers
   services.printing.enable = true;
