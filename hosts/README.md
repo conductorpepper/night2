@@ -1,7 +1,7 @@
 # Hosts
 
-| host     | system             | notes               |
-|----------|--------------------|---------------------|
-| allision | dell inspiron 3880 | previously nikoboat |
-| sailor   | unused             | laptop              |
-| starry   | unused             |                     |
+| host           | system             | notes               |
+|----------------|--------------------|---------------------|
+| weatherstation | dell inspiron 3880 | previously nikoboat |
+| postshelter    | unused             | laptop              |
+| starry         | unused             |                     |

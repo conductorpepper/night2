@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   # nixpkgs config
   nixpkgs.config = {
     allowUnfree = true;
@@ -50,7 +50,4 @@
       dates = ["04:00"];
     };
   };
-
-  # lix
-  nix.package = pkgs.lix;
 }

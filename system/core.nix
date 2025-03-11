@@ -2,7 +2,7 @@
   # bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = ["ntfs"];
+  boot.supportedFilesystems = ["ntfs" "btrfs"];
 
   # internationalisation
   i18n.defaultLocale = "en_US.UTF-8";
@@ -35,4 +35,37 @@
       fcitx5-mozc
     ];
   };
+
+  # user
+  users.users.ri = {
+    isNormalUser = true;
+    description = "rimail";
+    shell = pkgs.zsh;
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "scanner"
+      "lp"
+      "libvirtd"
+      "cdrom"
+      "gamemode"
+    ];
+  };
+
+  # shell
+  programs.zsh.enable = true;
+  environment.pathsToLink = ["/share/zsh"];
+
+  environment.shells = with pkgs; [
+    nushell
+  ];
+
+  environment.systemPackages = with pkgs; [
+    vim
+    git
+    gh
+    wget
+    just
+  ];
 }
