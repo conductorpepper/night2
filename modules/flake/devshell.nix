@@ -18,6 +18,8 @@
 
         git
         just
+
+        sl # test
       ];
 
       name = "night2-shell";
