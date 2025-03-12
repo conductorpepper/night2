@@ -1,9 +1,11 @@
 {
+  flake,
   pkgs,
-  self,
-  inputs,
   ...
-}: {
+}: let
+  inherit (flake) inputs;
+  inherit (flake.inputs) self;
+in {
   home.sessionVariables = {
     # wayland
     NIXOS_OZONE_WL = "1";

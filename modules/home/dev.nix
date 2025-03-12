@@ -1,13 +1,15 @@
 {
   config,
+  flake,
   pkgs,
   lib,
   ...
 }: {
   programs.git = {
     enable = true;
-    userEmail = "100497642+conductorpepper@users.noreply.github.com";
-    userName = "conductorpepper";
+    userEmail = flake.config.utils.user.email;
+    userName = flake.config.utils.user.username;
+    fullName = flake.config.utils.user.fullname;
   };
 
   programs.gh = {

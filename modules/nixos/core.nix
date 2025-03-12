@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  flake,
+  pkgs,
+}: let
+  inherit (flake) config;
+in {
   # bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -37,9 +42,9 @@
   };
 
   # user
-  users.users.ri = {
+  users.users."${config.utils.user.username}" = {
     isNormalUser = true;
-    description = "rimail";
+    description = config.utils.user.fullname;
     shell = pkgs.zsh;
     extraGroups = [
       "networkmanager"
