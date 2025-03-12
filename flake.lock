@@ -122,6 +122,41 @@
         "url": "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz"
       }
     },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741619381,
+        "narHash": "sha256-koZtlJRqi0/MD/AKd0KrXLA2NuBOVzlIyAJprjzpxZE=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "66537fb185462ba9b07f4e6f2d54894a1b2d04ab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
+    "nixos-unified": {
+      "locked": {
+        "lastModified": 1739631166,
+        "narHash": "sha256-BvGPP1MwuRZMK+4RLvMOQYUs15n5JA7BDH6TsXlsAU0=",
+        "owner": "srid",
+        "repo": "nixos-unified",
+        "rev": "f9598ba02ad38df238a5987ad78ffac4845b7f3a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "srid",
+        "repo": "nixos-unified",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1741379970,
@@ -185,6 +220,8 @@
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "lix-module": "lix-module",
+        "nix-index-database": "nix-index-database",
+        "nixos-unified": "nixos-unified",
         "nixpkgs": "nixpkgs",
         "nyxexprs": "nyxexprs",
         "systems": "systems_2",

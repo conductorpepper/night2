@@ -73,6 +73,6 @@ in {
     wget
     just
 
-    kilall
+    killall
   ];
 }
