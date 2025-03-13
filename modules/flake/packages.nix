@@ -1,7 +1,10 @@
 {
   perSystem = {pkgs, ...}: {
-    packages = with pkgs; {
-      middle-mann-fonts = callPackage ../../packages/middle-mann-fonts.nix {};
+    packages = let
+      # THE HORROR THE TERROR OF .nix, EVISCERATING THE COLORS
+      package = name: (pkgs.callPackage ../../packages/${name}.nix {});
+    in {
+      middle-mann-fonts = package "middle-mann-fonts";
     };
   };
 }

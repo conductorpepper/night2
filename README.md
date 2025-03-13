@@ -8,7 +8,16 @@ A single-user flake-parts flake that follows unstable.
 
 ## Exports
 
-This flake exports a few packages and [modules](./modules/) (quality varies) that are not present in nixpkgs.
+This flake exports a few [packages](./packages/) and [modules](./modules/) (quality varies) that are not present in nixpkgs.
+
+## Hosts
+
+| Host                | System             | Notes               |
+|---------------------|--------------------|---------------------|
+| weatherstation      | dell inspiron 3880 | previously nikoboat |
+| postshelter         | unused             | laptop              |
+| anticyclone         | unused             | another pc?         |
+| keeper              | virtual machine    | testing             |
 
 ## Acknowledgements
 
