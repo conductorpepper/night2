@@ -1,6 +1,6 @@
 # middle mann is a tf2 hud
 {
-  stdenv,
+  stdenvNoCC,
   fetchFromGitHub,
   lib,
 }: let
@@ -15,7 +15,7 @@
     inherit owner repo rev hash;
   };
 in
-  stdenv.mkDerivation {
+  stdenvNoCC.mkDerivation {
     inherit pname src;
     version = rev;
 

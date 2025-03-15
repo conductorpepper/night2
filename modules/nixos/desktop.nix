@@ -56,7 +56,7 @@
   environment.systemPackages = with pkgs; [
     nautilus
 
-    (callPackage self.packages.sddm-astronaut-theme {
+    (self.packages.sddm-astronaut-theme.override {
       theme = "hyprland_kath";
     })
   ];
