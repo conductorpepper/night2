@@ -1,10 +1,29 @@
-{pkgs, ...}: {
+{
+  self,
+  pkgs,
+  ...
+}: {
   # dewm
   programs.uwsm.enable = true;
   programs.hyprland.enable = true;
   programs.hyprland.withUWSM = true;
   programs.hyprlock.enable = true;
   services.hypridle.enable = true;
+
+  # greeter
+  services.displayManager = {
+    enable = true;
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+      theme = "hyprland_kath";
+      extraPackages = with pkgs.kdePackages; [
+        qtmultimedia
+        qtsvg
+        qtvirtualkeyboard
+      ];
+    };
+  };
 
   # fonts
   fonts.packages = with pkgs; [
@@ -36,5 +55,9 @@
   # utility packages
   environment.systemPackages = with pkgs; [
     nautilus
+
+    (callPackage self.packages.sddm-astronaut-theme {
+      theme = "hyprland_kath";
+    })
   ];
 }
