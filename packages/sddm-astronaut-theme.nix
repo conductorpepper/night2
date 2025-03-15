@@ -8,8 +8,7 @@
   formats,
   theme ? "astronaut",
   themeConfig ? null,
-}: 
-let
+}: let
   overwriteConfig = (formats.ini {}).generate "${theme}.conf.user" themeConfig;
 in
   stdenvNoCC.mkDerivation rec {
@@ -45,7 +44,7 @@ in
       ${lib.optionalString (lib.isAttrs themeConfig) ''
         install -dm755 "$themeDir/Themes"
         cp ${overwriteConfig} $themeDir/Themes/${theme}.conf.user
-        ''}
+      ''}
     '';
 
     meta = with lib; {
