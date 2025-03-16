@@ -28,6 +28,11 @@
       };
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # etc
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
@@ -36,6 +41,11 @@
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
