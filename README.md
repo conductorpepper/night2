@@ -12,12 +12,15 @@ This flake exports a few [packages](./packages/) and [modules](./modules/) (qual
 
 ## Hosts
 
+Hostnames are based off of inabakumori. Secondary machines -- VMs, ISOs, and miscellaneous devices -- will be based off other vocaloid artists and stuff (like ime44).
+
 | Host                | System             | Notes               |
 |---------------------|--------------------|---------------------|
 | weatherstation      | dell inspiron 3880 | previously nikoboat |
 | postshelter         | unused             | laptop              |
 | anticyclone         | unused             | another pc?         |
 | keeper              | virtual machine    | testing             |
+| prelude             | N/A                | installer           |
 
 ## Acknowledgements
 
