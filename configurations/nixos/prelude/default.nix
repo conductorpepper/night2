@@ -1,5 +1,4 @@
 {
-  self,
   lib,
   pkgs,
   modulesPath,
@@ -20,7 +19,7 @@
   environment.systemPackages = with pkgs; [
     (runCommand "night2-install" {
         name = "night2-install";
-        PATH = lib.makeBinPath [nushell gum git networkmanager];
+        nativeBuildInputs = with pkgs; [nushell gum git networkmanager];
       }
       builtins.readFile
       ./install.nu)
