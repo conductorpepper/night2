@@ -51,6 +51,7 @@ in {
       curtail
       tuxpaint
       aseprite
+      glaxnimate
 
       # writing
       libreoffice-qt

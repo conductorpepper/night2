@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   modulesPath,
@@ -17,16 +18,22 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   environment.systemPackages = with pkgs; [
-    (runCommand "night2-install" {
-        name = "night2-install";
-        nativeBuildInputs = with pkgs; [nushell gum git networkmanager];
-      }
-      builtins.readFile
-      ./install.nu)
+    # TODO: add bin path
+    (writeShellApplication {
+      name = "night2-install";
+      runtimeInputs = with pkgs; [nushell git networkmanager gum];
+      text = ''
+        nu ${./install.nu}
+      '';
+    })
 
     git
     neovim
     wget
     curl
   ];
+
+  networking.useDHCP = lib.mkDefault true;
+  nixpkgs.system = "x86_64-linux";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

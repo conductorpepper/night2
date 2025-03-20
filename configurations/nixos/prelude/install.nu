@@ -1,5 +1,3 @@
-#!/usr/bin/env nu
-
 def check-connection [] {
   let state = nmcli g status | detect columns | get STATE | first
   let connected = $state == "connected"
