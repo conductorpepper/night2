@@ -74,5 +74,7 @@ in {
     just
 
     killall
+
+    npins
   ];
 }
