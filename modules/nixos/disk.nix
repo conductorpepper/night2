@@ -24,10 +24,13 @@ in {
   config = mkIf cfg.enable {
     imports = [
       inputs.disko.nixosModules.disko
+      inputs.impermanence.nixosModules.impermanence
     ];
 
     # two-space indent my beloved
     # https://github.com/nix-community/disko/blob/master/example/luks-btrfs-subvolumes.nix
+    # https://github.com/chewblacka/nixos/tree/main
+    # https://github.com/vimjoyer/impermanent-setup/tree/main
     disko.devices = {
       disk.main = {
         type = "disk";
@@ -117,7 +120,10 @@ in {
       };
     };
 
-    fileSystems."@persist".neededForBoot = true;
-    fileSystems."@log".neededForBoot = true;
+    fileSystems."/persist".neededForBoot = true;
+    fileSystems."/var/log".neededForBoot = true;
+    fileSystems."/var/tmp".neededForBoot = true;
+
+    environment.persistence = {};
   };
 }
