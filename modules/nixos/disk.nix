@@ -9,7 +9,13 @@
   cfg = config.utils.disk;
 in {
   options.utils.disk = {
-    enable = mkEnableOption "automatic disko configuration";
+    enable = mkEnableOption "automatic disko + impermanence configuration";
+    longDescription = ''
+      Sets up my preferred Disko and Impermanence configuration.
+
+      Disko is used for delcarative disk management,
+      and Impermanence is used to clean up my system.
+    '';
     device = mkOption {
       type = types.str;
     };
@@ -63,7 +69,19 @@ in {
                       };
                       "@nix" = {
                         mountpoint = "/nix";
-                        mountoptions = ["compress=zstd" "noatime"];
+                        mountOptions = ["compress=zstd" "noatime"];
+                      };
+                      "@cache" = {
+                        mountpoint = "/var/cache";
+                        mountOptions = ["compress=zstd" "noatime"];
+                      };
+                      "@log" = {
+                        mountpoint = "/var/log";
+                        mountOptions = ["compress=zstd" "noatime"];
+                      };
+                      "@tmp" = {
+                        mountpoint = "/var/tmp";
+                        mountOptions = ["compress=zstd" "noatime"];
                       };
                       "@swap" = {
                         mountpoint = "/.swapvol";
@@ -78,5 +96,8 @@ in {
         };
       };
     };
+
+    fileSystems."@persist".neededForBoot = true;
+    fileSystems."@log".neededForBoot = true;
   };
 }
