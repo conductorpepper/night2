@@ -44,6 +44,7 @@ in {
       ventoy
       file-roller
       impression
+      veracrypt
 
       # image
       opentabletdriver

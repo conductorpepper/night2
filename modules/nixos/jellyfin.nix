@@ -15,10 +15,16 @@ in {
   config = lib.mkIf cfg.enable {
     services.jellyfin.enable = true;
     services.jellyfin.openFirewall = true;
+    services.jellyseerr.enable = true;
+
     environment.systemPackages = with pkgs; [
       jellyfin
       jellyfin-web
       jellyfin-ffmpeg
+    ];
+
+    environment.persistence."/persistent".directories = [
+      config.services.jellyfin.dataDir
     ];
   };
 }

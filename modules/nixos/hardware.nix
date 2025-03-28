@@ -82,6 +82,8 @@
 
   # utility packages
   environment.systemPackages = with pkgs; [
+    veracrypt
+
     pavucontrol
     pamixer
 
