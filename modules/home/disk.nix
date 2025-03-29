@@ -6,7 +6,7 @@
   flake,
   ...
 }: let
-  inherit (lib) mkEnableOption mkOption mkIf types;
+  inherit (lib) mkEnableOption mkIf;
   inherit (flake) inputs;
   cfg = config.utils.disk;
 in {
