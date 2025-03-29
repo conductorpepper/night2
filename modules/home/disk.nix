@@ -18,9 +18,6 @@ in {
       Disko is used for delcarative disk management,
       and Impermanence is used to clean up my system.
     '';
-    device = mkOption {
-      type = types.str;
-    };
   };
 
   config = mkIf cfg.enable {
