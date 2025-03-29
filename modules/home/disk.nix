@@ -10,6 +10,10 @@
   inherit (flake) inputs;
   cfg = config.utils.disk;
 in {
+  imports = [
+    inputs.impermanence.homeManagerModules.impermanence
+  ];
+
   options.utils.disk = {
     enable = mkEnableOption "automatic disko + impermanence configuration";
     longDescription = ''
@@ -21,10 +25,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    imports = [
-      inputs.impermanence.homeManagerModules.impermanence
-    ];
-
     home.persistence."/persistent/home/${flake.config.utils.user.username}" = {
       directories = let
         share = name: ".local/share/${name}";

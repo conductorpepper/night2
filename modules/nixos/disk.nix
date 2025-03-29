@@ -10,6 +10,11 @@
   inherit (flake) inputs;
   cfg = config.utils.disk;
 in {
+  imports = [
+    inputs.disko.nixosModules.disko
+    inputs.impermanence.nixosModules.impermanence
+  ];
+
   options.utils.disk = {
     enable = mkEnableOption "automatic disko + impermanence configuration";
     longDescription = ''
@@ -24,11 +29,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    imports = [
-      inputs.disko.nixosModules.disko
-      inputs.impermanence.nixosModules.impermanence
-    ];
-
     # two-space indent my beloved
     # https://github.com/nix-community/disko/blob/master/example/luks-btrfs-subvolumes.nix
     # https://github.com/chewblacka/nixos/tree/main
