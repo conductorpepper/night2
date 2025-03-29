@@ -1,4 +1,3 @@
-# https://github.com/juspay/nixos-unified-template/blob/main/modules/home/default.nix
 {
   imports =
     builtins.map

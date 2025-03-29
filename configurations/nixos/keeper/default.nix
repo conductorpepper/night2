@@ -1,6 +1,7 @@
 {
   flake,
   config,
+  lib,
   ...
 }: {
   imports = [
@@ -16,8 +17,8 @@
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
-  networking.useDHCP = true;
-  hardware.cpu.intel.updateMicrocode = config.hardware.enableRedistributableFirmware;
+  networking.useDHCP = lib.mkDefault true;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   utils.disk = {
     enable = true;
