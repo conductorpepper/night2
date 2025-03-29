@@ -55,14 +55,17 @@
   # color
   services.colord.enable = true;
 
+  # biometrics
+  services.fprintd.enable = true;
+
   # printers
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [
     gutenprint
     gutenprintBin
     hplip
-    hplipWithPlugins
-    cnjifilter2
+    hplipWithPlugin
+    cnijfilter2
   ];
 
   # scanners

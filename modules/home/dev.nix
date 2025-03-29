@@ -17,6 +17,9 @@
     gitCredentialHelper.enable = true;
   };
 
+  programs.bash.enable = true;
+  programs.bash.enableCompletion = true;
+
   programs.zsh.enable = true;
   programs.zsh.enableCompletion = true;
   programs.zsh.autosuggestion.enable = true;

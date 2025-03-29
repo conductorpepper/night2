@@ -1,6 +1,6 @@
 {
   imports = [
-    ./hypretc.nix
-    ./hyprland.nix
+    ./etc.nix
+    ./river.nix
   ];
 }

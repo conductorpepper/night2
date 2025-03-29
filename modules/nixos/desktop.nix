@@ -1,14 +1,23 @@
 {
-  self,
+  flake,
   pkgs,
   ...
-}: {
+}: let
+  inherit (flake) inputs;
+  inherit (inputs) self;
+in {
   # dewm
-  programs.uwsm.enable = true;
-  programs.hyprland.enable = true;
-  programs.hyprland.withUWSM = true;
-  programs.hyprlock.enable = true;
-  services.hypridle.enable = true;
+  programs.river.enable = true;
+  programs.uwsm = {
+    enable = true;
+    waylandCompositors = {
+      river = {
+        prettyName = "River";
+        comment = "River compositor managed by River";
+        binPath = "/run/current-system/sw/bin/river";
+      };
+    };
+  };
 
   # greeter
   services.displayManager = {
@@ -24,6 +33,10 @@
       ];
     };
   };
+
+  # desktop utils
+  programs.hyprlock.enable = true;
+  services.hypridle.enable = true;
 
   # fonts
   fonts.packages = with pkgs; [
@@ -56,7 +69,7 @@
   environment.systemPackages = with pkgs; [
     nautilus
 
-    (self.packages.sddm-astronaut-theme.override {
+    (self.packages.${pkgs.stdenv.hostPlatform.system}.sddm-astronaut-theme.override {
       theme = "hyprland_kath";
     })
   ];
