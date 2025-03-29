@@ -9,10 +9,6 @@
 
   # networking
   networking.networkmanager.enable = true;
-  networking.wireless = {
-    enable = true;
-    userControlled.enable = true;
-  };
   services.gnome = {
     glib-networking.enable = true;
     at-spi2-core.enable = true;
@@ -36,7 +32,6 @@
 
   # audio
   security.rtkit.enable = true;
-  hardware.pulseaudio.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
