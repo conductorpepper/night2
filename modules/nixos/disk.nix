@@ -104,63 +104,63 @@ in {
           };
         };
       };
-
-      environment.persistence."/persistent" = {
-        enable = true;
-        hideMounts = true;
-        directories = [
-          "/var/lib/blueman"
-          "/var/lib/cups"
-          "/var/lib/nixos"
-          "/var/lib/systemd/coredump"
-          "/etc/NetworkManager/system-connections"
-          {
-            directory = "/var/lib/colord";
-            user = "colord";
-            group = "colord";
-            mode = "u=rwx,g=rx,o=";
-          }
-        ];
-        files = [
-          "/etc/machine-id"
-        ];
-      };
-
-      environment.persistence."/home" = {
-        enable = true;
-        hideMounts = true;
-      };
-
-      fileSystems."/persistent".neededForBoot = true;
-      fileSystems."/home".neededForBoot = true;
-
-      boot.initrd.postDeviceCommands = lib.mkAfter ''
-        mkdir -p /btrfs
-        mount -o subvol="@" ${cfg.device} /btrfs
-
-        if [[ -e /btrfs/root ]]; then
-          mkdir -p /btrfs/old
-          timestamp=$(date --date = "@$(stat -c %Y /btrfs/root)" "+%Y-%m-%-d_%H:%M:%S")
-          mv /btrfs/root "/btrfs/old/$timestamp"
-        fi
-
-        delete_subvolume_recursively() {
-          IFS=$'\n'
-          for i in (btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
-            delete_subvolume_recursively "/btrfs/$i"
-          done
-          btrfs subvolume delete "$1"
-        }
-
-        for i in $(find /btrfs/old/ -maxdepth 1 -mtime +30); do
-          delete_subvolume_recursively "$i"
-        done
-
-        btrfs subvolume create /btrfs/root
-        umount /btrfs
-      '';
-
-      programs.fuse.userAllowOther = true;
     };
+
+    environment.persistence."/persistent" = {
+      enable = true;
+      hideMounts = true;
+      directories = [
+        "/var/lib/blueman"
+        "/var/lib/cups"
+        "/var/lib/nixos"
+        "/var/lib/systemd/coredump"
+        "/etc/NetworkManager/system-connections"
+        {
+          directory = "/var/lib/colord";
+          user = "colord";
+          group = "colord";
+          mode = "u=rwx,g=rx,o=";
+        }
+      ];
+      files = [
+        "/etc/machine-id"
+      ];
+    };
+
+    environment.persistence."/home" = {
+      enable = true;
+      hideMounts = true;
+    };
+
+    fileSystems."/persistent".neededForBoot = true;
+    fileSystems."/home".neededForBoot = true;
+
+    boot.initrd.postDeviceCommands = lib.mkAfter ''
+      mkdir -p /btrfs
+      mount -o subvol="@" ${cfg.device} /btrfs
+
+      if [[ -e /btrfs/root ]]; then
+        mkdir -p /btrfs/old
+        timestamp=$(date --date = "@$(stat -c %Y /btrfs/root)" "+%Y-%m-%-d_%H:%M:%S")
+        mv /btrfs/root "/btrfs/old/$timestamp"
+      fi
+
+      delete_subvolume_recursively() {
+        IFS=$'\n'
+        for i in (btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
+          delete_subvolume_recursively "/btrfs/$i"
+        done
+        btrfs subvolume delete "$1"
+      }
+
+      for i in $(find /btrfs/old/ -maxdepth 1 -mtime +30); do
+        delete_subvolume_recursively "$i"
+      done
+
+      btrfs subvolume create /btrfs/root
+      umount /btrfs
+    '';
+
+    programs.fuse.userAllowOther = true;
   };
 }
