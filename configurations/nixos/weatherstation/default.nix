@@ -1,5 +1,6 @@
-{
+{flake, ...}: {
   imports = [
+    flake.inputs.self.nixosModules.default
     ./hardware-configuration.nix
   ];
 

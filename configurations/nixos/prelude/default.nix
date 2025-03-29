@@ -28,6 +28,7 @@
     })
 
     git
+    gh
     neovim
     wget
     curl
