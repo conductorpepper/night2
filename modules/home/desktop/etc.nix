@@ -39,7 +39,7 @@
   # idle
   services.hypridle.enable = true;
   services.hypridle.settings = let
-    toggleOutputs = state: "nu ${./etc.nu} toggle-outputs ${state}";
+    toggleOutputs = state: "nu ${./etc.nu} toggle-outputs-hypr ${state}";
   in {
     general = {
       lock_cmd = ''
@@ -65,7 +65,7 @@
 
   # utils
   home.packages = with pkgs; [
-    wlr-randr
+    # wlr-randr
     procps
   ];
 }

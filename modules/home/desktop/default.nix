@@ -1,6 +1,6 @@
 {
   imports = [
     ./etc.nix
-    ./river.nix
+    ./hyprland.nix
   ];
 }

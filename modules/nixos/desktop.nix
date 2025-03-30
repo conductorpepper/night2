@@ -7,16 +7,10 @@
   inherit (inputs) self;
 in {
   # dewm
-  programs.river.enable = true;
+  programs.hyprland.enable = true;
+  programs.hyprland.withUWSM = true;
   programs.uwsm = {
     enable = true;
-    waylandCompositors = {
-      river = {
-        prettyName = "River";
-        comment = "River compositor managed by River";
-        binPath = "/run/current-system/sw/bin/river";
-      };
-    };
   };
 
   # greeter
