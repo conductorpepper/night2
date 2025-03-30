@@ -177,6 +177,26 @@
         "type": "github"
       }
     },
+    "nix-lemons": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1743342690,
+        "narHash": "sha256-zPkn+lcsCehCeZMyCfZ7R3YIfMRpIqx76z2o+2nJ7qI=",
+        "owner": "conductorpepper",
+        "repo": "nix-lemons",
+        "rev": "359973c32cc00726ddbae38a10e841d0fba73eb0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "conductorpepper",
+        "repo": "nix-lemons",
+        "type": "github"
+      }
+    },
     "nixos-unified": {
       "locked": {
         "lastModified": 1742328445,
@@ -258,6 +278,7 @@
         "impermanence": "impermanence",
         "lix-module": "lix-module",
         "nix-index-database": "nix-index-database",
+        "nix-lemons": "nix-lemons",
         "nixos-unified": "nixos-unified",
         "nixpkgs": "nixpkgs",
         "nyxexprs": "nyxexprs",

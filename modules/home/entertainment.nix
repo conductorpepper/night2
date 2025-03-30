@@ -20,10 +20,14 @@ in {
       feishin # jellyfin client
       gale # thunderstore client
       komikku # comic/manga reader
-      prismlauncher
+      everest-mons # celeste mods
+      prismlauncher # minecraft
       (tetrio-desktop.override {withTetrioPlus = true;})
     ]
     ++ (with inputs.nyxexprs.packages.${system}; [
       ani-cli
+    ])
+    ++ (with inputs.nix-lemons.packages.${system}; [
+      betacraft-launcher-bin
     ]);
 }
