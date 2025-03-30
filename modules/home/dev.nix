@@ -5,11 +5,13 @@
   lib,
   ...
 }: {
-  programs.git = {
+  programs.git = let
+    user = flake.config.utils.user;
+  in {
     enable = true;
-    userEmail = flake.config.utils.user.email;
-    userName = flake.config.utils.user.username;
-    fullName = flake.config.utils.user.fullname;
+    userEmail = user.email;
+    userName = user.username;
+    fullName = user.fullname;
   };
 
   programs.gh = {
@@ -70,6 +72,24 @@
 
   programs.helix.enable = true;
 
+  programs.vscode.enable = true;
+  programs.vscode.package = pkgs.vscodium;
+  programs.vscode.extensions = with pkgs.vscode-extensions; [
+    yzhang.markdown-all-in-one
+    rust-lang.rust-analyzer
+    dbaeumer.vscode-eslint
+    tamasfe.even-better-toml
+    ritwickdey.liveserver
+    jnoortheen.nix-ide
+    esbenp.prettier-vscode
+    thenuprojectcontributors.vscode-nushell-lang
+    redhat.vscode-xml
+    mvllow.rose-pine
+    usernamehw.errorlens
+    streetsidesoftware.code-spell-checker
+    mkhl.direnv
+  ];
+
   # apparently gio priortizes "xdg_terminal_exec" first,
   # so to set it, we do this
   home.file.".local/bin/xdg-terminal-exec" = {
@@ -111,7 +131,6 @@
 
     # editors
     jetbrains.idea-community-bin
-    vscodium
     zed-editor
 
     # blender hangs on intel integrated graphics
