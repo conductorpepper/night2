@@ -39,6 +39,10 @@ in {
         "VirtualBox VMs"
         "Music"
         ".gnupg"
+        ".betacraft"
+
+        ".config/keepassxc" # keeshare is menacing
+
         (share "keyrings")
         (share "direnv")
         (share "Anki2")
