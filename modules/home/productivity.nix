@@ -4,7 +4,6 @@
   ...
 }: let
   inherit (flake) inputs;
-  inherit (flake.inputs) self;
 in {
   home.sessionVariables = {
     # wayland
@@ -94,6 +93,11 @@ in {
       # learning
       anki-bin
 
+      # reading
+      okular
+      qpdfview
+      mupdf
+
       # fonts
       roboto
       noto-fonts
@@ -105,6 +109,6 @@ in {
       cozette
       tewi-font
       terminus_font
-      self.packages.${system}.middle-mann-fonts
+      inputs.nix-lemons.packages.${system}.middle-mann-fonts
     ];
 }

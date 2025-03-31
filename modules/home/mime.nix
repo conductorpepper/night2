@@ -29,7 +29,7 @@
     ${application "x-extension-xhtml"} = list ["zen"];
     ${application "x-extension-xht"} = list ["zen"];
     ${application "x-extension-x-wine-extension-ini"} = list ["Helix"];
-    ${application "pdf"} = list [""]; # what?
+    ${application "pdf"} = list ["okular" "qpdfview" "mupdf"];
 
     # image
     ${image "gif"} = list ["krita_gif" "zen"];
@@ -52,8 +52,10 @@
     ${x-scheme-handler "http"} = list ["zen"];
     ${x-scheme-handler "https"} = list ["zen"];
     ${x-scheme-handler "chrome"} = list ["zen"];
+    ${x-scheme-handler "ror2mm"} = list [".gale-wrapped-handler"];
 
     # misc
     "inode/directory" = list ["thunar" "org.gnome.Nautilus" "ranger"];
+    "ror2mm" = list [".gale-wrapped-handler"];
   };
 }
