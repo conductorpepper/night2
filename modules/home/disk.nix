@@ -27,6 +27,7 @@ in {
   config = mkIf cfg.enable {
     home.persistence."/persistent/home/${flake.config.utils.user.username}" = {
       directories = let
+        config = name: ".config/${name}";
         share = name: ".local/share/${name}";
         shareSym = name: {
           directory = share name;
@@ -40,8 +41,12 @@ in {
         "Music"
         ".gnupg"
         ".betacraft"
+        ".zen"
 
-        ".config/keepassxc" # keeshare is menacing
+        (config "keepassxc") # keeshare is menacing
+        (config "OpenTabletDriver") # this can be declarative
+        (config "gpu-screen-recorder") # can also be declarative
+        (config "com.kesomannen.gale") # can also be declarative
 
         (share "keyrings")
         (share "direnv")
