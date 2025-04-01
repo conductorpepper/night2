@@ -4,7 +4,9 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  inherit (flake) inputs;
+in {
   programs.git = let
     user = flake.config.utils.user;
   in {
@@ -105,6 +107,8 @@
       "gdscript"
       "superhtml"
       "nu"
+      "toml"
+      "vtsls"
 
       # themes
       "charmed-icons"
@@ -115,12 +119,74 @@
       features = {
         copilot = false;
       };
+      assistant = {
+        enabled = false;
+      };
       telemetry = {
         metrics = false;
       };
+
       vim_mode = true;
-      ui_font_size = 11;
-      buffer_font_size = 11;
+      load_direnv = "shell_hook";
+      base_keymap = "VSCode";
+      hour_format = "hour24";
+      auto_update = false;
+
+      terminal = {
+        dock = "bottom";
+        detect_venv = {
+          on = {
+            directories = [".env" "env" ".venv" "venv"];
+            activate_script = "default";
+          };
+        };
+        env.TERM = "ghostty";
+        # font_family
+        # font_features
+        # font_size
+        line_height = "comfortable";
+        shell.program = "nu";
+        toolbar.title = true;
+      };
+
+      lsp = {
+        rust-analyzer.binary.path_lookup = true;
+        nix.binary.path_lookup = true;
+        luau-lsp.settings = {
+          luau-lsp = {};
+          ext = {
+            roblox.enabled = false;
+          };
+          fflags = {
+            enable_new_solver = true;
+            sync = true;
+          };
+        };
+      };
+
+      languages = {
+        Lua = {
+          format_on_save = "on";
+          formatter.external.command = "stylua";
+          syntax = "Lua51";
+        };
+        Luau = {
+          format_on_save = "on";
+          formatter.external.command = "stylua";
+          syntax = "Luau";
+        };
+      };
+
+      theme = {
+        mode = "system";
+        light = "Rosé Pine Dawn";
+        dark = "Rosé Pine Moon";
+      };
+
+      icon_theme = "Charmed Icons";
+
+      ui_font_size = 12;
+      buffer_font_size = 12;
     };
   };
 
@@ -163,9 +229,6 @@
     blender
     blockbench
 
-    # editors
-    jetbrains.idea-community-bin
-
     # blender hangs on intel integrated graphics
     # so this is a workaround
     # https://askubuntu.com/questions/1477715/blender-hangs-using-intel-integrated-graphics
@@ -173,5 +236,14 @@
       echo 10000 | sudo tee /sys/class/drm/card1/engine/rcs0/preempt_timeout_ms
       INTEL_DEBUG=reemit blender
     '')
+
+    # editors
+    jetbrains.idea-community-bin
+
+    # language
+    rust-analyzer
+    stylua
+    nil
+    inputs.nyxexprs.packages.${pkgs.stdenv.hostPlatform.system}.alejandra-custom
   ];
 }
