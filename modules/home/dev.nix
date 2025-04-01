@@ -90,6 +90,40 @@
     mkhl.direnv
   ];
 
+  programs.zed-editor.enable = true;
+  programs.zed-editor = {
+    extensions = [
+      # languages
+      "nix"
+      "luau"
+      "lua"
+      "markdown-oxide"
+      "just"
+      "kotlin"
+      "java"
+      "hyprlang"
+      "gdscript"
+      "superhtml"
+      "nu"
+
+      # themes
+      "charmed-icons"
+      "rose-pine-theme"
+    ];
+
+    userSettings = {
+      features = {
+        copilot = false;
+      };
+      telemetry = {
+        metrics = false;
+      };
+      vim_mode = true;
+      ui_font_size = 11;
+      buffer_font_size = 11;
+    };
+  };
+
   # apparently gio priortizes "xdg_terminal_exec" first,
   # so to set it, we do this
   home.file.".local/bin/xdg-terminal-exec" = {
@@ -131,7 +165,6 @@
 
     # editors
     jetbrains.idea-community-bin
-    zed-editor
 
     # blender hangs on intel integrated graphics
     # so this is a workaround
