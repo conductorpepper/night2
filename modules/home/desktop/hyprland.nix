@@ -68,6 +68,8 @@ in {
       );
 
     exec-once = [
+      "lxqt-policykit-agent"
+
       "hyprpanel"
 
       "cliphist wipe"
