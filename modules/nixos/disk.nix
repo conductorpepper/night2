@@ -115,6 +115,8 @@ in {
         "/var/lib/nixos"
         "/var/lib/systemd/coredump"
         "/etc/NetworkManager/system-connections"
+        "/etc/passwd"
+        "/etc/shadow"
         {
           directory = "/var/lib/colord";
           user = "colord";
