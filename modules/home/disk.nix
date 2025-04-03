@@ -28,6 +28,7 @@ in {
     home.persistence."/persistent/home/${flake.config.utils.user.username}" = {
       directories = let
         config = name: ".config/${name}";
+        state = name: ".local/state/${name}";
         share = name: ".local/share/${name}";
         shareSym = name: {
           directory = share name;
@@ -59,6 +60,8 @@ in {
         (share "godot")
         (share "kiwix")
         (shareSym "Steam")
+
+        (state "ani-cli")
       ];
 
       files = [];
