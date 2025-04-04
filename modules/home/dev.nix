@@ -109,10 +109,6 @@ in {
       "nu"
       "toml"
       "vtsls"
-
-      # themes
-      "charmed-icons"
-      "rose-pine-theme"
     ];
 
     userSettings = {
@@ -176,17 +172,6 @@ in {
           syntax = "Luau";
         };
       };
-
-      theme = {
-        mode = "system";
-        light = "Rosé Pine Dawn";
-        dark = "Rosé Pine Moon";
-      };
-
-      icon_theme = "Charmed Icons";
-
-      ui_font_size = 12;
-      buffer_font_size = 12;
     };
   };
 

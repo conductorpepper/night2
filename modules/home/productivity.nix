@@ -65,6 +65,8 @@ in {
 
       # mail
       thunderbird
+      tutanota-desktop
+      protonmail-desktop # ...
 
       # pass
       keepassxc
@@ -97,18 +99,5 @@ in {
       okular
       qpdfview
       mupdf
-
-      # fonts
-      roboto
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      inter
-      commit-mono
-      (nerdfonts.override {fonts = ["JetBrainsMono"];})
-      cozette
-      tewi-font
-      terminus_font
-      inputs.nix-lemons.packages.${system}.middle-mann-fonts
     ];
 }
