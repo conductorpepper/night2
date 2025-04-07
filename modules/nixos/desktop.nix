@@ -1,11 +1,4 @@
-{
-  flake,
-  pkgs,
-  ...
-}: let
-  inherit (flake) inputs;
-  inherit (inputs) self;
-in {
+{pkgs, ...}: {
   # dewm
   programs.hyprland.enable = true;
   programs.hyprland.withUWSM = true;
@@ -63,7 +56,8 @@ in {
   environment.systemPackages = with pkgs; [
     nemo-with-extensions
 
-    (callPackage ./sddm-astronaut-theme.nix {
+    # ...?
+    (callPackage ./pkg/sddm-astronaut-theme.nix {
       theme = "hyprland_kath";
     })
   ];
