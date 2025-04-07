@@ -63,7 +63,7 @@ in {
   environment.systemPackages = with pkgs; [
     nemo-with-extensions
 
-    (self.packages.${pkgs.stdenv.hostPlatform.system}.sddm-astronaut-theme.override {
+    (callPackage ./sddm-astronaut-theme.nix {
       theme = "hyprland_kath";
     })
   ];
