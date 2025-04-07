@@ -39,9 +39,9 @@ def prompt-irreversible-install-again [] {
 
 def commit-irreversible-install [hostname: string] {
   gum log "Formatting disk..."
-  sudo nix run github:nix-community/disko -- --mode disko --flake /mnt/night2/#$hostname
+  sudo nix run github:nix-community/disko -- --mode disko --flake $"/mnt/night2/#($hostname)"
   gum log "Installing..."
-  sudo nixos-install --flake /mnt/night2/#$hostname
+  sudo nixos-install --flake $"/mnt/night2/#($hostname)"
 }
 
 def prompt-finish [] {
