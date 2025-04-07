@@ -1,7 +1,5 @@
 # night2
 
-___NixOS Configuration V3___
-
 A refactor of my previous configuration for simplicity and cleanliness.
 
 ## Hosts
