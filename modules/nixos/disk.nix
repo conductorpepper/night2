@@ -117,6 +117,7 @@ in {
         "/etc/NetworkManager/system-connections"
         "/etc/passwd"
         "/etc/shadow"
+        "/etc/night2"
         {
           directory = "/var/lib/colord";
           user = "colord";

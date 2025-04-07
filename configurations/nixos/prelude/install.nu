@@ -23,7 +23,7 @@ def prompt-hostname [] {
 def clone-flake [] {
   if not ("night2/" | path exists) {
     gum spin --title "Cloning flake..." -- git clone "https://github.com/conductorpepper/night2/"
-    sudo mv night2/ /mnt
+    sudo mv night2/ /mnt/etc/
   }
 }
 
