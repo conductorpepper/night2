@@ -99,5 +99,9 @@ in {
       okular
       qpdfview
       mupdf
+
+      # boredom
+      inochi-session
+      inochi-creator
     ];
 }

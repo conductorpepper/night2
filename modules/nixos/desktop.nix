@@ -61,7 +61,7 @@ in {
 
   # utility packages
   environment.systemPackages = with pkgs; [
-    nautilus
+    nemo-with-extensions
 
     (self.packages.${pkgs.stdenv.hostPlatform.system}.sddm-astronaut-theme.override {
       theme = "hyprland_kath";
