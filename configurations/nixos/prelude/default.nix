@@ -18,6 +18,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   networking.networkmanager.enable = true;
+  networking.wireless.enable = false;
 
   environment.systemPackages = with pkgs; [
     # TODO: add bin path
