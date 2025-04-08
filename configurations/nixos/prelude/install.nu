@@ -21,7 +21,12 @@ def prompt-hostname [] {
 }
 
 def prompt-password [] {
-  gum input --header "Enter password:" --password | save -f /tmp/secret.key
+  gum input --header "Enter encryption password:" --password
+}
+
+def prompt-password-again [password: string] {
+  let confirmed = gum input --header "Confirm encryption password:" --password
+  $password == $confirmed
 }
 
 def clone-flake [] {
@@ -31,7 +36,7 @@ def clone-flake [] {
   }
 }
 
-def prompt-irreverisble-install [hostname: string] {
+def prompt-irreversible-install [hostname: string] {
   gum confirm $"This flake will now be installed for ($hostname).
   As part of this process, the disk will be overwritten and may not be proper for your machine.
   Proceed?"
@@ -43,9 +48,9 @@ def prompt-irreversible-install-again [] {
 
 def commit-irreversible-install [hostname: string] {
   gum log "Formatting disk..."
-  sudo nix run github:nix-community/disko -- --mode disko --flake $"./night2/#($hostname)"
+  sudo nix run github:nix-community/disko -- --mode disko --flake $"night2/#($hostname)"
   gum log "Installing..."
-  sudo nixos-install --flake $".night2/#($hostname)"
+  sudo nixos-install --flake $"night2/#($hostname)"
 }
 
 def prompt-finish [] {
@@ -59,9 +64,20 @@ def main [] {
   check-connection
   prompt-intro
   let hostname = prompt-hostname
-  prompt-password
+  
+  loop {
+    let password = prompt-password
+    let correct = prompt-password-again $password
+    if $correct {
+      $password | save -f /tmp/secret.key  
+      break
+    } else {
+      gum log "The encryption password was not the same. Please try again."
+    }
+  }
+
   clone-flake
-  prompt-irreverisble-install $hostname
+  prompt-irreversible-install $hostname
   prompt-irreversible-install-again
   commit-irreversible-install $hostname
   prompt-finish
