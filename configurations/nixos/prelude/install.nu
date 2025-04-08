@@ -27,7 +27,7 @@ def prompt-password [] {
 def clone-flake [] {
   if not ("night2/" | path exists) {
     gum spin --title "Cloning flake..." -- git clone "https://github.com/conductorpepper/night2/"
-    sudo mv night2/ /mnt/etc/
+    sudo cp -r -f night2/ /mnt/etc/
   }
 }
 
@@ -43,9 +43,9 @@ def prompt-irreversible-install-again [] {
 
 def commit-irreversible-install [hostname: string] {
   gum log "Formatting disk..."
-  sudo nix run github:nix-community/disko -- --mode disko --flake $"/mnt/etc/night2/#($hostname)"
+  sudo nix run github:nix-community/disko -- --mode disko --flake $"./night2/#($hostname)"
   gum log "Installing..."
-  sudo nixos-install --flake $"/mnt/etc/night2/#($hostname)"
+  sudo nixos-install --flake $".night2/#($hostname)"
 }
 
 def prompt-finish [] {
