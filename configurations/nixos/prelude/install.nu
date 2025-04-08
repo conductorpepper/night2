@@ -20,6 +20,10 @@ def prompt-hostname [] {
   gum choose --header "Select host:" $WEATHERSTATION $POSTSHELTER $KEEPER
 }
 
+def prompt-password [] {
+  gum input --header "Enter password:" --password | save -f /tmp/secret.key
+}
+
 def clone-flake [] {
   if not ("night2/" | path exists) {
     gum spin --title "Cloning flake..." -- git clone "https://github.com/conductorpepper/night2/"
@@ -55,6 +59,7 @@ def main [] {
   check-connection
   prompt-intro
   let hostname = prompt-hostname
+  prompt-password
   clone-flake
   prompt-irreverisble-install $hostname
   prompt-irreversible-install-again
