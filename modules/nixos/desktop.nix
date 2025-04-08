@@ -9,9 +9,9 @@
   # greeter
   services.displayManager = {
     enable = true;
-    package = pkgs.kdePackages.sddm;
     sddm = {
       enable = true;
+      package = pkgs.kdePackages.sddm;
       wayland.enable = true;
       theme = "hyprland_kath";
       extraPackages = with pkgs.kdePackages; [
