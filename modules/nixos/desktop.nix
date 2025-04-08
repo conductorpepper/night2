@@ -9,6 +9,7 @@
   # greeter
   services.displayManager = {
     enable = true;
+    package = pkgs.kdePackages.sddm;
     sddm = {
       enable = true;
       wayland.enable = true;
