@@ -59,5 +59,5 @@ in {
   };
 
   # and whatever
-  documentation.doc.enable = true;
+  documentation.doc.enable = false;
 }
