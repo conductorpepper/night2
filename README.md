@@ -2,6 +2,8 @@
 
 A refactor of my previous configuration for simplicity and cleanliness.
 
+Please do not use this without modification; this should be modified for a certain system.
+
 ## Hosts
 
 | Host                | System             | Notes               |
@@ -11,6 +13,14 @@ A refactor of my previous configuration for simplicity and cleanliness.
 | anticyclone         | unused             | another pc?         |
 | keeper              | virtual machine    | testing             |
 | prelude             | N/A                | installer           |
+
+## Creating an ISO
+
+```nu
+git clone "https://github.com/conductorpepper/night2"
+cd night2
+nix build .#nixosConfigurations.prelude.config.system.build.isoImage # the only essential line
+```
 
 ## Acknowledgements
 
