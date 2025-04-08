@@ -57,4 +57,7 @@ in {
       dates = ["04:00"];
     };
   };
+
+  # and whatever
+  documentation.doc.enable = true;
 }
