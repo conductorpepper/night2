@@ -59,5 +59,5 @@ in {
   };
 
   # and whatever
-  documentation.doc.enable = false;
+  documentation.nixos.enable = false;
 }
