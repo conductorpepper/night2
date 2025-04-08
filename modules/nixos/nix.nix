@@ -57,7 +57,4 @@ in {
       dates = ["04:00"];
     };
   };
-
-  # and whatever
-  documentation.nixos.enable = false;
 }
