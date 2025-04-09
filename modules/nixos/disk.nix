@@ -29,7 +29,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    disko.enableConfig = false;
+    # disko.enableConfig = false; # temporarily?
 
     # two-space indent my beloved
     # https://github.com/nix-community/disko/blob/master/example/luks-btrfs-subvolumes.nix
