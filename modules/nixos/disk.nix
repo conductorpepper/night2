@@ -117,8 +117,6 @@ in {
         "/var/lib/nixos"
         "/var/lib/systemd/coredump"
         "/etc/NetworkManager/system-connections"
-        "/etc/passwd"
-        "/etc/shadow"
         "/etc/night2"
         {
           directory = "/var/lib/colord";
@@ -127,8 +125,11 @@ in {
           mode = "u=rwx,g=rx,o=";
         }
       ];
+
       files = [
         "/etc/machine-id"
+        "/etc/passwd"
+        "/etc/shadow"
       ];
     };
 
