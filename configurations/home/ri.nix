@@ -11,4 +11,6 @@ in {
     homeDirectory = "/home/${utils.user.username}";
     stateVersion = "25.05";
   };
+
+  programs.home-manager.enable = true; # i forgo
 }
