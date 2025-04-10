@@ -71,26 +71,6 @@ in {
                       mountpoint = "/";
                       inherit mountOptions;
                     };
-                    "@home" = {
-                      mountpoint = "/home";
-                      inherit mountOptions;
-                    };
-                    "@nix" = {
-                      mountpoint = "/nix";
-                      inherit mountOptions;
-                    };
-                    "@cache" = {
-                      mountpoint = "/var/cache";
-                      inherit mountOptions;
-                    };
-                    "@log" = {
-                      mountpoint = "/var/log";
-                      inherit mountOptions;
-                    };
-                    "@tmp" = {
-                      mountpoint = "/var/tmp";
-                      inherit mountOptions;
-                    };
                     "@persistent" = {
                       mountpoint = "/persistent";
                       inherit mountOptions;
@@ -116,6 +96,7 @@ in {
         "/var/lib/cups"
         "/var/lib/nixos"
         "/var/lib/systemd/coredump"
+        "/var/log"
         "/etc/NetworkManager/system-connections"
         "/etc/night2"
         {
@@ -133,13 +114,7 @@ in {
       ];
     };
 
-    environment.persistence."/home" = {
-      enable = true;
-      hideMounts = true;
-    };
-
     fileSystems."/persistent".neededForBoot = true;
-    fileSystems."/home".neededForBoot = true;
 
     boot.initrd.postDeviceCommands = lib.mkAfter ''
       mkdir -p /btrfs

@@ -23,8 +23,10 @@ in {
       jellyfin-ffmpeg
     ];
 
-    environment.persistence."/persistent".directories = [
-      config.services.jellyfin.dataDir
+    environment.persistence."/persistent".directories = with config.services.jellyfin; [
+      dataDir
+      cacheDir
+      configDir
     ];
   };
 }
