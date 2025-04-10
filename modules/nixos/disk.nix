@@ -15,9 +15,9 @@ in {
   ];
 
   options.utils.disk = {
-    enable = mkEnableOption "automatic disko configuration";
+    enable = mkEnableOption "automatic btrfs + disko configuration";
     longDescription = ''
-      Sets up my preferred Disko configuration.
+      Sets up my preferred BTRFS + Disko configuration.
 
       Disko is used for delcarative disk management,
       and Impermanence is used to clean up my system.
@@ -28,6 +28,11 @@ in {
   };
 
   config = mkIf cfg.enable {
+    services.btrfs.autoScrub = {
+      enable = true;
+      fileSystems = ["/"];
+    };
+
     disko.devices = {
       disk.main = {
         type = "disk";
@@ -59,11 +64,14 @@ in {
                   extraArgs = ["-f"];
                   subvolumes = let
                     mountOptions = ["compress=zstd" "noatime"];
-                  in {
-                    "@" = {
-                      mountpoint = "/";
-                      inherit mountOptions;
+                    mount = mountpoint: {
+                      inherit mountpoint mountOptions;
                     };
+                  in {
+                    "@" = mount "/";
+                    "@nix" = mount "/nix";
+                    "@log" = mount "/var/log";
+                    "@home" = mount "/home";
                     "@swap" = {
                       mountpoint = "/.swapvol";
                       swap.swapfile.size = "20M";
