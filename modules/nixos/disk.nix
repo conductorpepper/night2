@@ -12,13 +12,12 @@
 in {
   imports = [
     inputs.disko.nixosModules.disko
-    inputs.impermanence.nixosModules.impermanence
   ];
 
   options.utils.disk = {
-    enable = mkEnableOption "automatic disko + impermanence configuration";
+    enable = mkEnableOption "automatic disko configuration";
     longDescription = ''
-      Sets up my preferred Disko and Impermanence configuration.
+      Sets up my preferred Disko configuration.
 
       Disko is used for delcarative disk management,
       and Impermanence is used to clean up my system.
@@ -29,12 +28,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # disko.enableConfig = false; # temporarily?
-
-    # two-space indent my beloved
-    # https://github.com/nix-community/disko/blob/master/example/luks-btrfs-subvolumes.nix
-    # https://github.com/chewblacka/nixos/tree/main
-    # https://github.com/vimjoyer/impermanent-setup/tree/main
     disko.devices = {
       disk.main = {
         type = "disk";
@@ -71,10 +64,6 @@ in {
                       mountpoint = "/";
                       inherit mountOptions;
                     };
-                    "@persistent" = {
-                      mountpoint = "/persistent";
-                      inherit mountOptions;
-                    };
                     "@swap" = {
                       mountpoint = "/.swapvol";
                       swap.swapfile.size = "20M";
@@ -87,61 +76,5 @@ in {
         };
       };
     };
-
-    environment.persistence."/persistent" = {
-      enable = true;
-      hideMounts = true;
-      directories = [
-        "/var/lib/blueman"
-        "/var/lib/cups"
-        "/var/lib/nixos"
-        "/var/lib/systemd/coredump"
-        "/var/log"
-        "/etc/NetworkManager/system-connections"
-        "/etc/night2"
-        {
-          directory = "/var/lib/colord";
-          user = "colord";
-          group = "colord";
-          mode = "u=rwx,g=rx,o=";
-        }
-      ];
-
-      files = [
-        "/etc/machine-id"
-        "/etc/passwd"
-        "/etc/shadow"
-      ];
-    };
-
-    fileSystems."/persistent".neededForBoot = true;
-
-    boot.initrd.postDeviceCommands = lib.mkAfter ''
-      mkdir -p /btrfs
-      mount -o subvol="@" ${cfg.device} /btrfs
-
-      if [[ -e /btrfs/root ]]; then
-        mkdir -p /btrfs/old
-        timestamp=$(date --date = "@$(stat -c %Y /btrfs/root)" "+%Y-%m-%-d_%H:%M:%S")
-        mv /btrfs/root "/btrfs/old/$timestamp"
-      fi
-
-      delete_subvolume_recursively() {
-        IFS=$'\n'
-        for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
-          delete_subvolume_recursively "/btrfs/$i"
-        done
-        btrfs subvolume delete "$1"
-      }
-
-      for i in $(find /btrfs/old/ -maxdepth 1 -mtime +30); do
-        delete_subvolume_recursively "$i"
-      done
-
-      btrfs subvolume create /btrfs/root
-      umount /btrfs
-    '';
-
-    programs.fuse.userAllowOther = true;
   };
 }

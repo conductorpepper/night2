@@ -22,11 +22,5 @@ in {
       jellyfin-web
       jellyfin-ffmpeg
     ];
-
-    environment.persistence."/persistent".directories = with config.services.jellyfin; [
-      dataDir
-      cacheDir
-      configDir
-    ];
   };
 }
