@@ -17,8 +17,11 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  networking.hostName = "prelude";
   networking.networkmanager.enable = true;
   networking.wireless.enable = false;
+
+  time.timeZone = "America/New_York";
 
   environment.systemPackages = with pkgs; [
     # TODO: add bin path
@@ -38,6 +41,7 @@
   ];
 
   networking.useDHCP = lib.mkDefault true;
-  nixpkgs.system = "x86_64-linux";
+  nixpkgs.hostPlatform = "x86_64-linux";
+  system.stateVersion = "25.05";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
