@@ -32,7 +32,7 @@ def prompt-password-again [password: string] {
 def clone-flake [] {
   if not ("night2/" | path exists) {
     gum spin --title "Cloning flake..." -- git clone "https://github.com/conductorpepper/night2/"
-    sudo cp -r -f night2/ /mnt/etc/
+    sudo cp -r -f night2/ /mnt/etc/night2/
   }
 }
 
