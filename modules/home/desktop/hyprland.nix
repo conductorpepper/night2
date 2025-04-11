@@ -93,6 +93,6 @@ in {
   home.packages = with pkgs; [
     wl-clipboard
     nwg-drawer
-    inputs.hyprpanel.packages.default
+    inputs.hyprpanel.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
