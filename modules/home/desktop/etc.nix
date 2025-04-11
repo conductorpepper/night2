@@ -39,7 +39,11 @@
   # idle
   services.hypridle.enable = true;
   services.hypridle.settings = let
-    toggleOutputs = state: "nu ${./etc.nu} toggle-outputs-hypr ${state}";
+    toggleOutputs = state: "nu ${./etc.nu} toggle-outputs-hypr ${
+      if state
+      then "true"
+      else "false"
+    }";
   in {
     general = {
       lock_cmd = ''

@@ -15,6 +15,7 @@ in {
       "electron-31.7.7"
 
       # for trenchbroom; why. like, the ACEs!!! WHY!!!
+      "freeimage-3.18.0-unstable-2024-04-18"
       "freeimage-unstable-2021-11-01"
     ];
   };
