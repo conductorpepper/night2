@@ -75,7 +75,7 @@ in {
 
   programs.vscode.enable = true;
   programs.vscode.package = pkgs.vscodium;
-  programs.vscode.extensions = with pkgs.vscode-extensions; [
+  programs.vscode.profiles.default.extensions = with pkgs.vscode-extensions; [
     yzhang.markdown-all-in-one
     rust-lang.rust-analyzer
     dbaeumer.vscode-eslint
