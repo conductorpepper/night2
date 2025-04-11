@@ -13,9 +13,17 @@
   system.stateVersion = "25.05";
 
   boot.initrd.availableKernelModules = [
-    "ata_piix" "uhci_hcd" "virtio_pci" "virtio_scsi"
+    "ata_piix"
+    "uhci_hcd"
+    "virtio_pci"
+    "virtio_scsi"
     "virtio_blk"
-    "xhci_pci" "ahci" "usbhid" "uas" "sd_mod" "sr_mod"
+    "xhci_pci"
+    "ahci"
+    "usbhid"
+    "uas"
+    "sd_mod"
+    "sr_mod"
   ];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
@@ -23,6 +31,9 @@
 
   networking.useDHCP = lib.mkDefault true;
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
 
   utils.disk = {
     enable = true;
