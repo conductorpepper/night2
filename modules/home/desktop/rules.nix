@@ -1,44 +1,33 @@
 {
   wayland.windowManager.hyprland.settings = {
-    windowrule = let
-      kando = [
-        "noblur, kando"
-        "size 100% 100%, kando"
-        "noborder, kando"
-        "noanim, kando"
-        "float, kando"
-        "pin, kando"
-      ];
-    in
-      [
-        "center, title:^(Open File)(.*)$"
-        "float, title:^(Open File)(.*)$"
+    windowrule = [
+      "center, title:^(Open File)(.*)$"
+      "float, title:^(Open File)(.*)$"
 
-        "center, title:^(Select a File)(.*)$"
-        "float, title:^(Select a File)(.*)$"
+      "center, title:^(Select a File)(.*)$"
+      "float, title:^(Select a File)(.*)$"
 
-        "center, title:^(Choose wallpaper)(.*)$"
-        "float, title:^(Choose wallpaper)(.*)$"
+      "center, title:^(Choose wallpaper)(.*)$"
+      "float, title:^(Choose wallpaper)(.*)$"
 
-        "center, title:^(Open Folder)(.*)$"
-        "float, title:^(Open Folder)(.*)$"
+      "center, title:^(Open Folder)(.*)$"
+      "float, title:^(Open Folder)(.*)$"
 
-        "center, title:^(Save As)(.*)$"
-        "float, title:^(Save As)(.*)$"
+      "center, title:^(Save As)(.*)$"
+      "float, title:^(Save As)(.*)$"
 
-        "center, title:^(Save File)(.*)$"
-        "float, title:^(Save File)(.*)$"
+      "center, title:^(Save File)(.*)$"
+      "float, title:^(Save File)(.*)$"
 
-        "center, title:^(Library)(.*)$"
-        "float, title:^(Library)(.*)$"
+      "center, title:^(Library)(.*)$"
+      "float, title:^(Library)(.*)$"
 
-        "center, title:^(File Upload)(.*)$"
-        "float, title:^(File Upload)(.*)$"
+      "center, title:^(File Upload)(.*)$"
+      "float, title:^(File Upload)(.*)$"
 
-        "center, title:^(Authentication Required)(.*)$"
-        "float, title:^(Authentication Required)(.*)$"
-      ]
-      ++ kando;
+      "center, title:^(Authentication Required)(.*)$"
+      "float, title:^(Authentication Required)(.*)$"
+    ];
 
     windowrulev2 = [
       # gnome calculator
