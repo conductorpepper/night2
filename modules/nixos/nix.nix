@@ -1,7 +1,7 @@
 {flake, ...}: let
   inherit (flake) config;
 in {
-  # nixpkgs config (doesn't work btw)
+  # nixpkgs config
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
