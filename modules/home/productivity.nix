@@ -96,7 +96,7 @@ in {
       anki-bin
 
       # reading
-      okular
+      kdePackages.okular # set explicitly
       qpdfview
       mupdf
 
