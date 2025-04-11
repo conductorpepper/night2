@@ -43,9 +43,9 @@ in {
   };
 
   # user
-  users.users."${config.utils.user.username}" = {
+  users.users."${config.me.username}" = {
     isNormalUser = true;
-    description = config.utils.user.fullname;
+    description = config.me.fullname;
     shell = pkgs.zsh;
     extraGroups = [
       "networkmanager"

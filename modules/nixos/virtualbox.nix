@@ -19,7 +19,7 @@ in {
     virtualisation.virtualbox.guest.dragAndDrop = true;
 
     users.extraGroups.vboxusers.members = [
-      flake.config.utils.user.username
+      flake.config.me.username
     ];
   };
 }

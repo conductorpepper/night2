@@ -1,14 +1,14 @@
 {flake, ...}: let
   inherit (flake.inputs) self;
-  inherit (flake.config) utils;
+  inherit (flake.config) me;
 in {
   imports = [
     self.homeModules.default
   ];
 
   home = {
-    username = utils.user.username;
-    homeDirectory = "/home/${utils.user.username}";
+    username = me.username;
+    homeDirectory = "/home/${me.username}";
     stateVersion = "25.05";
   };
 

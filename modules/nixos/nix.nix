@@ -1,7 +1,7 @@
 {flake, ...}: let
   inherit (flake) config;
 in {
-  # nixpkgs config
+  # nixpkgs config (doesn't work btw)
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
@@ -40,7 +40,7 @@ in {
 
     trusted-users = [
       "root"
-      config.utils.user.username
+      config.me.username
     ];
   };
 

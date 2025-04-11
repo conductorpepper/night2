@@ -1,5 +1,5 @@
 {
-  utils.user = {
+  me = {
     username = "ri";
     fullname = "rimail";
     email = "100497642+conductorpepper@users.noreply.github.com";

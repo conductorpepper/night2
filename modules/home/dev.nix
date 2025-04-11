@@ -8,7 +8,7 @@
   inherit (flake) inputs;
 in {
   programs.git = let
-    user = flake.config.utils.user;
+    user = flake.config.me;
   in {
     enable = true;
     userEmail = user.email;
