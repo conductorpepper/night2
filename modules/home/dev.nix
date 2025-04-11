@@ -41,7 +41,7 @@ in {
       # sync with home.sessionPath for some reason
       $env.PATH = ($env.PATH |
         split row (char esep) |
-        append "/home/jan/.local/bin"
+        append "/home/ri/.local/bin"
       )
 
       $env.config.show_banner = false
