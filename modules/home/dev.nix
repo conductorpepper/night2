@@ -13,7 +13,6 @@ in {
     enable = true;
     userEmail = user.email;
     userName = user.username;
-    fullName = user.fullname;
   };
 
   programs.gh = {
