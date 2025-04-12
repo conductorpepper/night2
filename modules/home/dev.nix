@@ -69,6 +69,9 @@ in {
 
   programs.ghostty = {
     enable = true;
+    settings = {
+      command = "nu";
+    };
   };
 
   programs.helix.enable = true;
