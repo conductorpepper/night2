@@ -53,18 +53,24 @@
       after_sleep_cmd = toggleOutputs true;
     };
 
-    listener = [
-      {
-        timeout = 120;
-        on-timeout = toggleOutputs false;
-        on-resume = toggleOutputs true;
-      }
-
-      {
-        timeout = 180;
-        on-timeout = "systemctl suspend";
-      }
-    ];
+    listener =
+      [
+        {
+          timeout = 120;
+          on-timeout = toggleOutputs false;
+          on-resume = toggleOutputs true;
+        }
+      ]
+      ++ (
+        if builtins.getEnv "EXSSD" == "true"
+        then []
+        else [
+          {
+            timeout = 180;
+            on-timeout = "systemctl suspend";
+          }
+        ]
+      );
   };
 
   # utils
