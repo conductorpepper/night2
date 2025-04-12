@@ -25,7 +25,7 @@ in {
     system.activationScripts.libvirtcow = {
       text = ''
         mkdir -p /var/lib/libvirt/images
-        chattr +C /var/lib/librit/images
+        chattr +C /var/lib/libvirt/images
       '';
     };
 
