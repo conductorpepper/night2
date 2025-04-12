@@ -13,14 +13,22 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    programs.virt-manager.enable = true;
     virtualisation.libvirtd.enable = true;
     virtualisation.spiceUSBRedirection.enable = true;
-
     services.qemuGuest.enable = true;
     services.spice-vdagentd.enable = true;
     services.spice-webdavd.enable = true;
 
-    programs.virt-manager.enable = true;
+    # since it decreases performance (probably),
+    # disable CoW for the vm images
+    system.activationScripts.libvirtcow = {
+      text = ''
+        mkdir -p /var/lib/libvirt/images
+        chattr +C /var/lib/librit/images
+      '';
+    };
+
     environment.systemPackages = with pkgs; [
       spice
       virt-viewer
