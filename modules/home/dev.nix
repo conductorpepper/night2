@@ -41,7 +41,7 @@ in {
       # sync with home.sessionPath for some reason
       $env.PATH = ($env.PATH |
         split row (char esep) |
-        append "/home/ri/.local/bin"
+        append "/home/${flake.config.me.username}/.local/bin"
       )
 
       $env.config.show_banner = false
