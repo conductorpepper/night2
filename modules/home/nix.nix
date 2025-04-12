@@ -27,7 +27,7 @@
 
   home.packages = with pkgs; [
     # does the $1 screw this up?
-    (writeShellScriptBin "nix-hash" ''
+    (writeShellScriptBin "nix-prefetch-hash" ''
       nix hash to-sri --type sha256 $(nix-prefetch-url --unpack "$1")
     '')
   ];
