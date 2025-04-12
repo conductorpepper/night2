@@ -1,6 +1,6 @@
 {
   imports = [
-    ./themes/rose-pine-moon.nix
+    ./themes/rose-pine-dawn.nix
   ];
 
   home.pointerCursor = {
