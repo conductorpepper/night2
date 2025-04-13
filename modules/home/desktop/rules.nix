@@ -1,9 +1,9 @@
 {lib, ...}: {
   wayland.windowManager.hyprland.settings = {
     windowrule = let
-      float = dialog: [
-        "center, title:^(${float})(.*)$"
-        "float, title:^(${float})(.*)$"
+      float = title: [
+        "center, title:^(${title})(.*)$"
+        "float, title:^(${title})(.*)$"
       ];
     in
       lib.lists.flatten [
