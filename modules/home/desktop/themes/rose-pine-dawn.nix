@@ -68,13 +68,8 @@
   };
 
   wayland.windowManager.hyprland.settings = {
-    general = {
-      border_size = 8;
-      no_border_on_floating = true;
-    };
-
     decoration = {
-      rounding = 16;
+      rounding = 8;
     };
   };
 

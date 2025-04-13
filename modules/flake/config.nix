@@ -1,7 +1,7 @@
 {
   me = {
     username = "ri";
-    fullname = "rimail";
+    fullname = "Ri";
     email = "100497642+conductorpepper@users.noreply.github.com";
   };
 }
