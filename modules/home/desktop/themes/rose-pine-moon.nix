@@ -66,8 +66,4 @@
       hash = "sha256-RVHiJ/lFcjecf20yMGFZulRLMnrH9qxIHQ/YaGD5nVo=";
     };
   };
-
-  home.packages = with pkgs; [
-    fcitx5-rose-pine
-  ];
 }
