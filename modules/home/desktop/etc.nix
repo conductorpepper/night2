@@ -1,6 +1,6 @@
 {
-  config,
   pkgs,
+  passthru,
   ...
 }: {
   # lock
@@ -66,7 +66,7 @@
         }
       ]
       ++ (
-        if (builtins.fromJSON config.xdg.configFile."night2-passthru.json".text).exssd == true
+        if (passthru.exssd == true)
         then []
         else [
           {
