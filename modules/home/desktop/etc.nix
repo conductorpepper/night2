@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   # lock
   # some parts are from https://gist.github.com/ashish-kus/dd562b0bf5e8488a09e0b9c289f4574c
   programs.hyprlock.enable = true;
@@ -62,7 +66,7 @@
         }
       ]
       ++ (
-        if builtins.getEnv "EXSSD" == "true"
+        if (builtins.fromJSON config.xdg.configFile."night2-passthru.json".text).exssd == true
         then []
         else [
           {
