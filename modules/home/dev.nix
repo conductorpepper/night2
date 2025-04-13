@@ -70,7 +70,7 @@ in {
   programs.ghostty = {
     enable = true;
     settings = {
-      command = "nu";
+      command = lib.getExe config.programs.nushell.package;
     };
   };
 
