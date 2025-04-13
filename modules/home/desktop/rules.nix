@@ -1,33 +1,23 @@
-{
+{lib, ...}: {
   wayland.windowManager.hyprland.settings = {
-    windowrule = [
-      "center, title:^(Open File)(.*)$"
-      "float, title:^(Open File)(.*)$"
-
-      "center, title:^(Select a File)(.*)$"
-      "float, title:^(Select a File)(.*)$"
-
-      "center, title:^(Choose wallpaper)(.*)$"
-      "float, title:^(Choose wallpaper)(.*)$"
-
-      "center, title:^(Open Folder)(.*)$"
-      "float, title:^(Open Folder)(.*)$"
-
-      "center, title:^(Save As)(.*)$"
-      "float, title:^(Save As)(.*)$"
-
-      "center, title:^(Save File)(.*)$"
-      "float, title:^(Save File)(.*)$"
-
-      "center, title:^(Library)(.*)$"
-      "float, title:^(Library)(.*)$"
-
-      "center, title:^(File Upload)(.*)$"
-      "float, title:^(File Upload)(.*)$"
-
-      "center, title:^(Authentication Required)(.*)$"
-      "float, title:^(Authentication Required)(.*)$"
-    ];
+    windowrule = let
+      float = dialog: [
+        "center, title:^(${float})(.*)$"
+        "float, title:^(${float})(.*)$"
+      ];
+    in
+      lib.lists.flatten [
+        (float "Open File")
+        (float "Select a File")
+        (float "Choose wallpaper")
+        (float "Open Folder")
+        (float "Save As")
+        (float "Save File")
+        (float "Library")
+        (float "File Upload")
+        (float "Authentication Required")
+        (float "Select Folders")
+      ];
 
     windowrulev2 = [
       # gnome calculator
