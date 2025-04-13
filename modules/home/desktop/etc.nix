@@ -13,7 +13,7 @@
       hide_cursor = true;
     };
 
-    authentication = {
+    auth = {
       fingerprint.enabled = true;
     };
 
