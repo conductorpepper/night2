@@ -51,7 +51,7 @@
   in {
     general = {
       lock_cmd = ''
-        bash -c "pidof hyprlock || hyprlock &
+        bash -c "pidof hyprlock || hyprlock &"
       '';
       before_sleep_cmd = toggleOutputs false;
       after_sleep_cmd = toggleOutputs true;

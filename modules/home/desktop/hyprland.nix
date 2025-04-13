@@ -46,7 +46,7 @@ in {
         "$mod SHIFT, up, resizeactive, 0 -100"
 
         # programs
-        "$mod, Q, exec, xdg-terminal-exec $SHELL" # terminal
+        "$mod, Q, exec, ghostty" # terminal
         "$mod, S, exec, zen" # browser
         "$mod, A, exec, xdg-open $HOME" # files
         "$mod, W, exec, nwg-drawer" # launcher
