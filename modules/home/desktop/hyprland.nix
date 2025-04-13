@@ -140,7 +140,7 @@ in {
 
   wayland.windowManager.hyprland.plugins = with pkgs.hyprlandPlugins; [
     hyprspace # workspace overview
-    hyprfocus # focus animation
+    # hyprfocus # focus animation (currently broken)
     hyprbars # window title
     hypr-dynamic-cursors # dynamic cursors
   ];

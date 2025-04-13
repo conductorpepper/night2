@@ -67,12 +67,13 @@
     };
   };
 
-  wayland.windowManager.hyprland.settings.source = [
-    (pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/rose-pine/hyprland/6898fe967c59f9bec614a9a58993e0cb8090d052/rose-pine-dawn.conf";
-      hash = "sha256-5/j0eTKTPU67nmMjK3M8BrGvmYtoRI14bgBfbdBpbps=";
-    })
-  ];
+  # stack overflow; max-call-depth exceeded
+  # wayland.windowManager.hyprland.settings.source = [
+  #   (pkgs.fetchurl {
+  #     url = "https://raw.githubusercontent.com/rose-pine/hyprland/6898fe967c59f9bec614a9a58993e0cb8090d052/rose-pine-dawn.conf";
+  #     hash = "sha256-5/j0eTKTPU67nmMjK3M8BrGvmYtoRI14bgBfbdBpbps=";
+  #   })
+  # ];
 
   home.packages = with pkgs; [
     fcitx5-rose-pine
