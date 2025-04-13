@@ -55,7 +55,7 @@
     ${x-scheme-handler "ror2mm"} = list [".gale-wrapped-handler"];
 
     # misc
-    "inode/directory" = list ["thunar" "org.gnome.Nautilus" "ranger"];
+    "inode/directory" = list ["nemo" "thunar" "org.gnome.Nautilus" "ranger"];
     "ror2mm" = list [".gale-wrapped-handler"];
   };
 }
