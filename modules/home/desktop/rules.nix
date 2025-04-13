@@ -28,6 +28,9 @@
       # PiP
       "float, title:^(Picture-in-Picture)$"
       "pin, title:^(Picture-in-Picture)$"
+
+      # hyprbars
+      "plugin:hyprbars:nobar, floating:0"
     ];
   };
 }

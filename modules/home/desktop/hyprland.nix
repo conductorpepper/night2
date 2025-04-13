@@ -11,8 +11,15 @@ in {
   };
 
   wayland.windowManager.hyprland.settings = {
-    "$mod" = "SUPER";
+    general = {
+      resize_on_border = true;
+      layout = "master";
+      snap = {
+        enabled = true;
+      };
+    };
 
+    "$mod" = "SUPER";
     bind =
       [
         # hyprland
@@ -47,6 +54,9 @@ in {
         # utils
         "$mod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
         "$mod SHIFT, SPACE, execr, fcitx5-remote -t"
+
+        # plugins
+        "$mod, E, overview:toggle" # this is not ergonomic.
       ]
       ++ (
         # workspaces
@@ -67,6 +77,11 @@ in {
         )
       );
 
+    bindm = [
+      "$mod, mouse:272, movewindow"
+      "$mod, mouse:273, resizewindow"
+    ];
+
     exec-once = [
       "lxqt-policykit-agent"
 
@@ -84,11 +99,51 @@ in {
     misc = {
       disable_hyprland_logo = true;
     };
+
+    plugin = {
+      hyprspace = {};
+
+      # config from https://github.com/pyt0xic/hyprfocus
+      hyprfocus = {
+        focus_animation = "shrink";
+        bezier = [
+          "bezIn, 0.5, 0.0, 1.0, 0.5"
+          "bezOut, 0.0, 0.5, 0.5, 1.0"
+          "overshot, 0.05, 0.9, 0.1, 1.05"
+          "smoothOut, 0.36, 0, 0.66, -0.56"
+          "smoothIn, 0.25, 1, 0.5, 1"
+          "realsmooth, 0.28, 0.29, 0.69, 1.08"
+        ];
+        shrink = {
+          shrink_percentage = 0.95;
+          in_bezier = "realsmooth";
+          in_speed = 1;
+          out_bezier = "realsmooth";
+          out_speed = 2;
+        };
+      };
+
+      hyprbars = {
+        bar_height = 32;
+        bar_text_size = 24;
+        hyprbars-button = [
+          "rgb(ff4040), 15, 󰖭, hyprctl dispatch killactive"
+          "rgb(eeee11), 15, , hyprctl dispatch fullscreen 1"
+        ];
+      };
+
+      dynamic-cursors = {
+        shake.enabled = false;
+      };
+    };
   };
 
-  programs.wofi = {
-    enable = true;
-  };
+  wayland.windowManager.hyprland.plugins = with pkgs.hyprlandPlugins; [
+    hyprspace # workspace overview
+    hyprfocus # focus animation
+    hyprbars # window title
+    hypr-dynamic-cursors # dynamic cursors
+  ];
 
   home.packages = with pkgs; [
     wl-clipboard

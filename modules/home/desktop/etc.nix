@@ -73,6 +73,10 @@
       );
   };
 
+  programs.wofi = {
+    enable = true;
+  };
+
   # utils
   home.packages = with pkgs; [
     # wlr-randr
