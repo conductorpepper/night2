@@ -47,7 +47,7 @@ in {
 
         # programs
         "$mod, Q, exec, xdg-terminal-exec $SHELL" # terminal
-        "$mod, S, exec, xdg-open \"https://nekoweb.org/\"" # browser
+        "$mod, S, exec, zen" # browser
         "$mod, A, exec, xdg-open $HOME" # files
         "$mod, W, exec, nwg-drawer" # launcher
 
