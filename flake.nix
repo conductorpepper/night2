@@ -2,7 +2,6 @@
   description = "pepper's nixos configuration";
 
   inputs = {
-    # principle
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default-linux";
@@ -33,9 +32,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # etc
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

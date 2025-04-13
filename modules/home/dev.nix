@@ -211,6 +211,7 @@ in {
     # game
     trenchbroom
     godot_4
+    vinegar # roblox studio
 
     # modeling
     blender
