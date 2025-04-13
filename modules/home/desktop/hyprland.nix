@@ -56,7 +56,7 @@ in {
         "$mod SHIFT, SPACE, execr, fcitx5-remote -t"
 
         # plugins
-        "$mod, E, overview:toggle" # this is not ergonomic.
+        "$mod, D, exec, hyprctl dispatch overview:toggle" # this is not ergonomic.
       ]
       ++ (
         # workspaces
