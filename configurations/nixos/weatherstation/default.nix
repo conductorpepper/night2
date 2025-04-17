@@ -15,6 +15,6 @@
   # so i'll just do this (and disable the disks in bios)
   utils.disk = {
     enable = true;
-    device = "/dev/disk/by-uuid/5d4f75e2-289c-41f1-bdba-1a2474d5cc97";
+    device = "/dev/disk/by-partlabel/disk-main-root";
   };
 }

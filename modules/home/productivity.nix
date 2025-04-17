@@ -44,6 +44,7 @@ in {
       file-roller
       impression
       veracrypt
+      deja-dup
 
       # image
       opentabletdriver

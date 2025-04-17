@@ -232,6 +232,7 @@ in {
     rust-analyzer
     stylua
     nil
+    nixd
     inputs.nyxexprs.packages.${pkgs.stdenv.hostPlatform.system}.alejandra-custom
   ];
 }
