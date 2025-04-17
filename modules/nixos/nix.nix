@@ -1,6 +1,10 @@
 {flake, ...}: let
-  inherit (flake) config;
+  inherit (flake) config inputs;
 in {
+  imports = [
+    inputs.lix-module.nixosModules.default
+  ];
+
   # nixpkgs config
   nixpkgs.config = {
     allowUnfree = true;
