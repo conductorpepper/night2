@@ -49,7 +49,7 @@ in {
         "$mod, Q, exec, ghostty" # terminal
         "$mod, S, exec, zen" # browser
         "$mod, A, exec, xdg-open $HOME" # files
-        "$mod, W, exec, nwg-drawer" # launcher
+        "$mod, W, exec, wofi --show drun" # launcher
 
         # utils
         "$mod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
@@ -149,7 +149,7 @@ in {
   home.packages = with pkgs; [
     wl-clipboard
     cliphist
-    nwg-drawer
+    wofi
     inputs.hyprpanel.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
