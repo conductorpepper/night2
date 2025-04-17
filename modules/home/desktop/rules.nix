@@ -33,6 +33,7 @@
       "plugin:hyprbars:nobar, floating:0"
       "plugin:hyprbars:nobar, title:^(Picture-in-Picture)$"
       "plugin:hyprbars:nobar, initialClass:^(zen)$"
+      "plugin:hyprbars:nobar, class:^(steam)$"
     ];
   };
 }

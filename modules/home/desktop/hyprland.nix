@@ -98,6 +98,7 @@ in {
 
     misc = {
       disable_hyprland_logo = true;
+      animate_manual_resizes = true;
     };
 
     plugin = {
@@ -147,6 +148,7 @@ in {
 
   home.packages = with pkgs; [
     wl-clipboard
+    cliphist
     nwg-drawer
     inputs.hyprpanel.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];

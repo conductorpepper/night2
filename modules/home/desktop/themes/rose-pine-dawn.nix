@@ -24,6 +24,11 @@
       package = pkgs.rose-pine-icon-theme;
     };
 
+    font = {
+      name = "Inter";
+      package = pkgs.inter;
+    };
+
     # maybe package pier sans at some point
     # (used for the rose pine website (or don't and just use what ui-sans-serif uses))
   };

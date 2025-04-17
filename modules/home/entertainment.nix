@@ -12,7 +12,7 @@ in {
     [
       # chat
       vesktop
-      signal-desktop
+      signal-desktop-source
       deltachat-desktop
 
       # games

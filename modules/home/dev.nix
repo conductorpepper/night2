@@ -233,6 +233,7 @@ in {
     stylua
     nil
     nixd
+    markdown-oxide
     inputs.nyxexprs.packages.${pkgs.stdenv.hostPlatform.system}.alejandra-custom
   ];
 }

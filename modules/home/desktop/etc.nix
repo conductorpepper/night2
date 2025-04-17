@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   passthru,
   ...
@@ -43,7 +44,7 @@
   # idle
   services.hypridle.enable = true;
   services.hypridle.settings = let
-    toggleOutputs = state: "nu ${./etc.nu} toggle-outputs-hypr ${
+    toggleOutputs = state: "${lib.getExe pkgs.nushell} ${./etc.nu} toggle-outputs-hypr ${
       if state
       then "true"
       else "false"
@@ -51,9 +52,9 @@
   in {
     general = {
       lock_cmd = ''
-        bash -c "pidof hyprlock || hyprlock &"
+        ${lib.getExe pkgs.bash} -c "pidof hyprlock || hyprlock &"
       '';
-      before_sleep_cmd = toggleOutputs false;
+      before_sleep_cmd = "${pkgs.systemd}/bin/loginctl lock-session &";
       after_sleep_cmd = toggleOutputs true;
     };
 
@@ -71,7 +72,7 @@
         else [
           {
             timeout = 180;
-            on-timeout = "systemctl suspend";
+            on-timeout = "${pkgs.systemd}/bin/systemctl suspend";
           }
         ]
       );
