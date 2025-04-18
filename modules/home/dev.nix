@@ -210,7 +210,7 @@ in {
 
     # game
     trenchbroom
-    godot_4_3
+    # godot_4_3 # TODO: does not install for some reason; add this back
     vinegar # roblox studio
 
     # modeling

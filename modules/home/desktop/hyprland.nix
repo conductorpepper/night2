@@ -124,15 +124,6 @@ in {
         };
       };
 
-      hyprbars = {
-        bar_height = 32;
-        bar_text_size = 24;
-        hyprbars-button = [
-          "rgb(ff4040), 15, 󰖭, hyprctl dispatch killactive"
-          "rgb(eeee11), 15, , hyprctl dispatch fullscreen 1"
-        ];
-      };
-
       dynamic-cursors = {
         shake.enabled = false;
       };
@@ -142,7 +133,6 @@ in {
   wayland.windowManager.hyprland.plugins = with pkgs.hyprlandPlugins; [
     hyprspace # workspace overview
     # hyprfocus # focus animation (currently broken)
-    hyprbars # window title
     hypr-dynamic-cursors # dynamic cursors
   ];
 
