@@ -38,6 +38,9 @@
     neovim
     wget
     curl
+    btop
+    tmux
+    ranger
   ];
 
   networking.useDHCP = lib.mkDefault true;

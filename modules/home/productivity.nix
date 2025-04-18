@@ -101,6 +101,9 @@ in {
       qpdfview
       mupdf
 
+      # computer
+      btop
+
       # boredom
       inochi-session
       inochi-creator
