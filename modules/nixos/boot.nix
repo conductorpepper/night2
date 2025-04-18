@@ -20,6 +20,6 @@
       "rd.systemd.show_status=auto"
     ];
 
-    loader.timeout = 0;
+    loader.timeout = 5;
   };
 }
