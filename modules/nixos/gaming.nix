@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{config, pkgs, ...}: {
   programs.steam = {
     enable = true;
-    gamescopeSession.enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+
+    gamescopeSession.enable = true;
+    gamescopeSession.args = [
+      "-O ${(builtins.concatStringsSep "," config.utils.monitors.monitors)}"
+    ];
   };
 
   programs.gamescope = {

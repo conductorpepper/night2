@@ -16,6 +16,7 @@ in {
       ];
       home-manager.extraSpecialArgs.passthru = {
         exssd = config.utils.exssd.enable;
+        monitors = config.utils.monitors.monitors;
       };
     }
   ];

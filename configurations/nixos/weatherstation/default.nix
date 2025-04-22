@@ -10,6 +10,10 @@
 
   bundles.jellyfin.enable = true;
   utils.exssd.enable = true;
+  utils.monitors.monitors = [
+    "HDMI-A-1"
+    "DP-3"
+  ];
 
   # i have another operating system i REALLY don't want to overwrite
   # so i'll just do this (and disable the disks in bios)
