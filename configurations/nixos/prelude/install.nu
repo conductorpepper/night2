@@ -2,7 +2,7 @@ def check-connection [] {
   let state = nmcli g status | detect columns | get STATE | first
   let connected = $state == "connected"
   if not $connected {
-    gum log --level "error" "Internet connection needed!" 
+    gum log --level "error" "Internet connection needed!"
     exit
   }
 }
@@ -33,7 +33,6 @@ def clone-flake [] {
   if not ("night2/" | path exists) {
     gum spin --title "Cloning flake..." -- git clone "https://github.com/conductorpepper/night2/"
     sudo mkdir /mnt/etc/
-    sudo cp -r -f night2/ /mnt/etc/
   }
 }
 
@@ -54,6 +53,10 @@ def commit-irreversible-install [hostname: string] {
   sudo nixos-install --flake $"night2/#($hostname)"
 }
 
+def post-install [] {
+  sudo cp -r -f night2/ /mnt/etc/
+}
+
 def prompt-finish [] {
   gum confirm $"This flake is now installed. Reboot?"
   print "Rebooting..."
@@ -65,12 +68,12 @@ def main [] {
   check-connection
   prompt-intro
   let hostname = prompt-hostname
-  
+
   loop {
     let password = prompt-password
     let correct = prompt-password-again $password
     if $correct {
-      $password | save -f /tmp/secret.key  
+      $password | save -f /tmp/secret.key
       break
     } else {
       gum log "The encryption password was not the same. Please try again."
@@ -81,6 +84,14 @@ def main [] {
   prompt-irreversible-install $hostname
   prompt-irreversible-install-again
   commit-irreversible-install $hostname
+  post-install
   prompt-finish
 }
 
+def "main clone-flake" [] {
+    clone-flake
+}
+
+def "main configurations" [] {
+    ranger night2/configurations/nixos
+}

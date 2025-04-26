@@ -9,6 +9,7 @@
   system.stateVersion = "25.05";
 
   bundles.jellyfin.enable = true;
+  bundles.power.enable = true;
   utils.exssd.enable = true;
   utils.monitors.monitors = [
     "HDMI-A-1"
@@ -20,5 +21,6 @@
   utils.disk = {
     enable = true;
     device = "/dev/disk/by-partlabel/disk-main-root";
+    swap = "16G";
   };
 }

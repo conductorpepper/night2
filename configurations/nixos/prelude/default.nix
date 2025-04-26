@@ -24,10 +24,10 @@
   time.timeZone = "America/New_York";
 
   environment.systemPackages = with pkgs; [
-    # TODO: add bin path
+    # ~~TODO: add bin path~~ <- what does this mean
     (writeShellApplication {
       name = "night2-install";
-      runtimeInputs = with pkgs; [nushell git networkmanager gum];
+      runtimeInputs = with pkgs; [nushell git networkmanager gum ranger];
       text = ''
         nu ${./install.nu}
       '';

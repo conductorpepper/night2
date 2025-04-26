@@ -26,7 +26,7 @@ in {
   programs.zsh.enable = true;
   programs.zsh.enableCompletion = true;
   programs.zsh.autosuggestion.enable = true;
-  programs.zsh.initExtra = ''
+  programs.zsh.initContent = ''
     # Starship
     eval "$(starship init zsh)"
   '';
@@ -188,11 +188,6 @@ in {
         ${lib.getExe config.programs.ghostty.package} -e ...$args
       }
     '';
-
-    # text = ''
-    #   #!${lib.getExe config.programs.zsh.package}
-    #   ${lib.getExe config.programs.ghostty.package} -e "$@"
-    # '';
   };
 
   home.sessionVariables = {
@@ -210,7 +205,7 @@ in {
 
     # game
     trenchbroom
-    # godot_4_3 # TODO: does not install for some reason; add this back
+    godot_4_3
     vinegar # roblox studio
 
     # modeling

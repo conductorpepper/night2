@@ -25,6 +25,10 @@ in {
     device = mkOption {
       type = types.str;
     };
+    swap = mkOption {
+      type = types.string;
+      default = "16G";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -74,7 +78,7 @@ in {
                     "@home" = mount "/home";
                     "@swap" = {
                       mountpoint = "/.swapvol";
-                      swap.swapfile.size = "16G";
+                      swap.swapfile.size = cfg.swap;
                     };
                   };
                 };

@@ -12,12 +12,12 @@ in {
     [
       # chat
       vesktop
-      signal-desktop-source
+      signal-desktop
       deltachat-desktop
 
       # games
       lutris
-      feishin # jellyfin client
+      feishin # jellyfin client (music)
       gale # thunderstore client
       komikku # comic/manga reader
       everest-mons # celeste mods
@@ -26,8 +26,5 @@ in {
     ]
     ++ (with inputs.nyxexprs.packages.${system}; [
       ani-cli
-    ])
-    ++ (with inputs.nix-lemons.packages.${system}; [
-      betacraft-launcher-bin
     ]);
 }
