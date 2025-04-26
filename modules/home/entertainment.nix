@@ -17,11 +17,13 @@ in {
 
       # games
       lutris
+      umu-launcher
       feishin # jellyfin client (music)
       gale # thunderstore client
       komikku # comic/manga reader
       everest-mons # celeste mods
       prismlauncher # minecraft
+      sm64coopdx
       (tetrio-desktop.override {withTetrioPlus = true;})
     ]
     ++ (with inputs.nyxexprs.packages.${system}; [
