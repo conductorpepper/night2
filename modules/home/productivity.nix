@@ -91,6 +91,8 @@ in {
       vlc
       mpv
       davinci-resolve
+      kdePackages.kdenlive
+      flowblade
       yt-dlp
 
       # learning
