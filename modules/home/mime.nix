@@ -3,6 +3,7 @@
   xdg.mimeApps.enable = true;
 
   # maybe i'll just persist this...
+  # `xdg-mime query filetype <file>` to get mimetypes
   # TODO: make a little tree, add vscodium, set pdf
   xdg.mimeApps.defaultApplications = let
     application = name: "application/${name}";
@@ -56,6 +57,7 @@
 
     # misc
     "inode/directory" = list ["nemo" "thunar" "org.gnome.Nautilus" "ranger"];
+    "inode/mount-point" = list ["nemo" "thunar" "org.gnome.Nautilus" "ranger"];
     "ror2mm" = list [".gale-wrapped-handler"];
   };
 }
