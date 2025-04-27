@@ -10,7 +10,9 @@ in {
     systemd.enable = false; # conflicts with uwsm
   };
 
-  wayland.windowManager.hyprland.settings = {
+  wayland.windowManager.hyprland.settings = let
+    dispatchutil = subcommand: "nu ${./hypr.nu} ${subcommand}";
+  in {
     general = {
       resize_on_border = true;
       layout = "master";
@@ -23,7 +25,7 @@ in {
     bind =
       [
         # hyprland
-        "$mod, X, killactive"
+        "$mod, X, ${dispatchutil "kill-active"}"
         "$mod, M, exec, hyprctl dispatch exit"
         "$mod, L, exec, loginctl lock-session"
 
@@ -47,7 +49,7 @@ in {
 
         # programs
         "$mod, Q, exec, ghostty" # terminal
-        "$mod, S, exec, zen" # browser
+        "$mod, S, exec, zen" # browser; TODO: make this faster to open and not take like one second
         "$mod, A, exec, xdg-open $HOME" # files
         "$mod, W, exec, wofi --show drun" # launcher
 
@@ -56,7 +58,7 @@ in {
         "$mod SHIFT, SPACE, execr, fcitx5-remote -t"
 
         # plugins
-        "$mod, D, exec, hyprctl dispatch overview:toggle" # this is not ergonomic.
+        "$mod, tab, exec, hyprctl dispatch overview:toggle"
       ]
       ++ (
         # workspaces
@@ -140,6 +142,7 @@ in {
     wl-clipboard
     cliphist
     wofi
+    xdotool
     inputs.hyprpanel.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
