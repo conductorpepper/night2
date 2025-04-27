@@ -56,9 +56,13 @@
   # whatever this is
   services.xserver.updateDbusEnvironment = true;
 
+  # polkit
+  security.polkit.enable = true;
+
   # utility packages
   environment.systemPackages = with pkgs; [
     nemo-with-extensions
+    lxqt.lxqt-policykit
 
     # ...?
     (callPackage ./pkg/sddm-astronaut-theme.nix {
