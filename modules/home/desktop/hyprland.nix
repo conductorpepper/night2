@@ -25,7 +25,7 @@ in {
     bind =
       [
         # hyprland
-        "$mod, X, ${dispatchutil "kill-active"}"
+        "$mod, X, exec, ${dispatchutil "kill-active"}"
         "$mod, M, exec, hyprctl dispatch exit"
         "$mod, L, exec, loginctl lock-session"
 
