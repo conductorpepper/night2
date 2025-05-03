@@ -23,8 +23,11 @@ in {
       komikku # comic/manga reader
       everest-mons # celeste mods
       prismlauncher # minecraft
-      sm64coopdx
+      # sm64coopdx # since it requires a rom in the nix store; easier to `nix run`
       (tetrio-desktop.override {withTetrioPlus = true;})
+
+      # video
+      grayjay
     ]
     ++ (with inputs.nyxexprs.packages.${system}; [
       ani-cli
