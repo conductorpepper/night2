@@ -111,6 +111,7 @@ in {
       "nu"
       "toml"
       "vtsls"
+      "scss"
     ];
 
     userSettings = {
