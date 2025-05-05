@@ -228,6 +228,7 @@ in {
     nil
     nixd
     markdown-oxide
+    vtsls
     inputs.nyxexprs.packages.${pkgs.stdenv.hostPlatform.system}.alejandra-custom
   ];
 }

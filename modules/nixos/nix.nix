@@ -17,6 +17,7 @@ in {
       # logseq EOL
       "electron-27.3.11"
       "electron-31.7.7"
+      "electron-33.4.11"
 
       # for trenchbroom; why. like, the ACEs!!! WHY!!!
       "freeimage-3.18.0-unstable-2024-04-18"
