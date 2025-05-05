@@ -105,9 +105,5 @@ in {
 
       # computer
       btop
-
-      # boredom
-      inochi-session
-      inochi-creator
     ];
 }
