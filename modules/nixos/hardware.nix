@@ -25,7 +25,6 @@
       intel-compute-runtime
       intel-media-driver
       vpl-gpu-rt
-      rocmPackages.clr.icd
     ];
   };
 

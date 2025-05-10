@@ -225,6 +225,7 @@ in {
 
     # language
     rust-analyzer
+    lua-language-server
     stylua
     nil
     nixd
