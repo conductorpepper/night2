@@ -231,7 +231,7 @@ in {
     nixd
     markdown-oxide
     vtsls
-    package-language-server
+    package-version-server
     inputs.nyxexprs.packages.${pkgs.stdenv.hostPlatform.system}.alejandra-custom
   ];
 }
