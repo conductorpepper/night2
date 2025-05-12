@@ -232,6 +232,7 @@ in {
     markdown-oxide
     vtsls
     package-version-server
+    luau-lsp
     inputs.nyxexprs.packages.${pkgs.stdenv.hostPlatform.system}.alejandra-custom
   ];
 }
