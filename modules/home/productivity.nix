@@ -40,7 +40,7 @@ in {
       # files
       ranger
       unzip
-      ventoy
+      # ventoy # marked insecure and i don't really need it rn
       file-roller
       impression
       veracrypt

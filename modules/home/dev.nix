@@ -166,8 +166,17 @@ in {
       languages = {
         Lua = {
           format_on_save = "on";
-          formatter.external.command = "stylua";
           syntax = "Lua51";
+          formatter.external = {
+            command = "stylua";
+            arguments = [
+              "--syntax=Lua51"
+              "--respect-ignores"
+              "--stdin-filepath"
+              "{buffer_path}"
+              "-"
+            ];
+          };
         };
         Luau = {
           format_on_save = "on";
