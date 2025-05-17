@@ -1,4 +1,4 @@
-{flake, ...}: let
+{flake, pkgs, ...}: let
   inherit (flake) config inputs;
 in {
   imports = [
@@ -63,4 +63,10 @@ in {
       dates = ["04:00"];
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    (writeShellScriptBin "night2-activate" ''
+      sudo nix run /etc/night2#activate
+    '')
+  ];
 }
