@@ -83,16 +83,16 @@
 
     animation = [
       # windows
-      "windowsIn, 1, 2, easeOutExpo, popin 80%"
-      "windowsOut, 1, 1, easeOutExpo, popin 80%"
-      "windowsMove, 1, 1, easeOutExpo, slide"
+      "windowsIn, 1, 6, easeOutExpo, popin 80%"
+      "windowsOut, 1, 2, easeOutExpo, popin 80%"
+      "windowsMove, 1, 2, easeOutExpo, slide"
 
       # layers
-      "layersIn, 1, 2, easeOutExpo, popin 80%"
-      "layersOut, 1, 1, easeOutExpo, popin 80%"
+      "layersIn, 1, 6, easeOutExpo, popin 80%"
+      "layersOut, 1, 2, easeOutExpo, popin 80%"
 
       # workspaces
-      "workspaces, 1, 2, easeOutExpo, slidefadevert 80%"
+      "workspaces, 1, 6, easeOutExpo, slidefadevert 80%"
     ];
   };
 
