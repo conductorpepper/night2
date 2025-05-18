@@ -54,6 +54,8 @@
     ${x-scheme-handler "https"} = list ["zen"];
     ${x-scheme-handler "chrome"} = list ["zen"];
     ${x-scheme-handler "ror2mm"} = list [".gale-wrapped-handler"];
+    ${x-scheme-handler "roblox-studio-auth"} = list ["org.vinegarhq.Vinegar.studio"];
+    ${x-scheme-handler "roblox-player"} = list ["org.vinegarhq.Sober"];
 
     # misc
     "inode/directory" = list ["nemo" "thunar" "org.gnome.Nautilus" "ranger"];
