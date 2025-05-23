@@ -4,16 +4,20 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   inherit (flake) inputs;
-in {
-  programs.git = let
-    user = flake.config.me;
-  in {
-    enable = true;
-    userEmail = user.email;
-    userName = user.username;
-  };
+in
+{
+  programs.git =
+    let
+      user = flake.config.me;
+    in
+    {
+      enable = true;
+      userEmail = user.email;
+      userName = user.username;
+    };
 
   programs.gh = {
     enable = true;
@@ -135,7 +139,12 @@ in {
         dock = "bottom";
         detect_venv = {
           on = {
-            directories = [".env" "env" ".venv" "venv"];
+            directories = [
+              ".env"
+              "env"
+              ".venv"
+              "venv"
+            ];
             activate_script = "default";
           };
         };
@@ -152,7 +161,7 @@ in {
         rust-analyzer.binary.path_lookup = true;
         nix.binary.path_lookup = true;
         luau-lsp.settings = {
-          luau-lsp = {};
+          luau-lsp = { };
           ext = {
             roblox.enabled = false;
           };
@@ -182,6 +191,18 @@ in {
           format_on_save = "on";
           formatter.external.command = "stylua";
           syntax = "Luau";
+        };
+        Nix = {
+          format_on_save = "on";
+          formatter = {
+            external = {
+              command = "nixfmt";
+              arguments = [
+                "--quiet"
+                "--"
+              ];
+            };
+          };
         };
       };
     };

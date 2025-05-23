@@ -1,0 +1,14 @@
+{
+  "lsp": {
+    "nixd": {
+      "options": {
+        "nixos": {
+          "expr": "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.weatherstation.options"
+        },
+        "home-manager": {
+          "expr": "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.weatherstation.options.home-manager.users.type.getSubOptions []"
+        }
+      }
+    }
+  }
+}
