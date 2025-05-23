@@ -13,8 +13,8 @@
 
     devShells.default = pkgs.mkShell {
       packages = with pkgs; [
-        inputs'.nyxexprs.packages.alejandra-custom # formatter
-        nil # lsp
+        nixd # lsp
+        nixfmt-rfc-style
 
         git
         just

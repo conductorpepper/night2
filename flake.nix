@@ -17,7 +17,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # alejandra-custom, ani-cli
+    # ani-cli
     nyxexprs = {
       url = "github:notashelf/nyxexprs";
       inputs = {

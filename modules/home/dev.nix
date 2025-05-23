@@ -236,12 +236,11 @@ in {
     rust-analyzer
     lua-language-server
     stylua
-    nil
     nixd
     markdown-oxide
     vtsls
     package-version-server
     luau-lsp
-    inputs.nyxexprs.packages.${pkgs.stdenv.hostPlatform.system}.alejandra-custom
+    nixfmt-rfc-style
   ];
 }
