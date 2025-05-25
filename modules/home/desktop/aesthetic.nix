@@ -1,5 +1,6 @@
 {
   imports = [
+    ./common.nix
     ./themes/koki-o.nix
   ];
 
