@@ -14,11 +14,10 @@
         };
       };
       ${confine "inter"} = {
-        source = pkgs.fetchFromGitHub {
-          owner = "rsms";
-          repo = "inter";
-          rev = "v4.1";
-          hash = "sha256-HXb08JjES2+80+lJ5w46yX8sP9Jh5V+DBlbdKQfdpLw=";
+        source = pkgs.fetchzip {
+          url = "https://github.com/rsms/inter/releases/download/v4.1/Inter-4.1.zip";
+          hash = "sha256-5vdKKvHAeZi6igrfpbOdhZlDX2/5+UvzlnCQV6DdqoQ=";
+          stripRoot = false;
         };
       };
     };
