@@ -126,7 +126,7 @@
         metrics = false;
       };
 
-      vim_mode = true;
+      # vim_mode = true;
       load_direnv = "shell_hook";
       base_keymap = "VSCode";
       hour_format = "hour24";
