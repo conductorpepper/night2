@@ -5,9 +5,6 @@
   lib,
   ...
 }:
-let
-  inherit (flake) inputs;
-in
 {
   programs.git =
     let
@@ -189,8 +186,17 @@ in
         };
         Luau = {
           format_on_save = "on";
-          formatter.external.command = "stylua";
           syntax = "Luau";
+          formatter.external = {
+            command = "stylua";
+            arguments = [
+              "--syntax=Luau"
+              "--respect-ignores"
+              "--stdin-filepath"
+              "{buffer_path}"
+              "-"
+            ];
+          };
         };
         Nix = {
           language_servers = [
