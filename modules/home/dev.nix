@@ -246,7 +246,7 @@
 
     # game
     trenchbroom
-    godot_4_3
+    godot
 
     # modeling
     blender
