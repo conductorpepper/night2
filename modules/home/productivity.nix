@@ -2,9 +2,11 @@
   flake,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (flake) inputs;
-in {
+in
+{
   home.sessionVariables = {
     # wayland
     NIXOS_OZONE_WL = "1";
@@ -20,10 +22,12 @@ in {
     ];
   };
 
-  home.packages = let
-    system = pkgs.stdenv.hostPlatform.system;
-  in
-    with pkgs; [
+  home.packages =
+    let
+      system = pkgs.stdenv.hostPlatform.system;
+    in
+    with pkgs;
+    [
       # audio
       easyeffects
       cava
@@ -33,6 +37,7 @@ in {
       wike
       kiwix
       inputs.zen-browser.packages.${system}.default
+      netsurf.browser # i like it
 
       # wine
       wineWowPackages.waylandFull

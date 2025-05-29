@@ -154,6 +154,10 @@
         toolbar.title = true;
       };
 
+      file_types = {
+        "HTML" = [ "njk" ];
+      };
+
       lsp = {
         rust-analyzer.binary.path_lookup = true;
         nix.binary.path_lookup = true;
