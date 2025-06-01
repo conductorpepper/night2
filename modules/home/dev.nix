@@ -113,6 +113,7 @@
       "toml"
       "vtsls"
       "scss"
+      "liquid"
     ];
 
     userSettings = {
@@ -216,6 +217,14 @@
                 "--"
               ];
             };
+          };
+        };
+        Liquid = {
+          prettier = {
+            allowed = true;
+            plugins = [
+              "@shopify/prettier-plugin-liquid"
+            ];
           };
         };
       };
