@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.pointerCursor = {
     package = pkgs.rose-pine-cursor;
     name = "BreezeX-RosePineDawn-Linux";
@@ -47,7 +48,7 @@
         dark = "Rosé Pine Moon";
       };
 
-      icon_theme = "Charmed Icons";
+      icon_theme = "Soft Charmed Icons";
 
       ui_font_size = 16;
       buffer_font_size = 16;
