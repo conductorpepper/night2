@@ -95,6 +95,10 @@
             name = "mini.surround";
             path = mini-nvim;
           }
+          {
+            name = "luau-lsp";
+            path = luau-lsp-nvim;
+          }
         ];
         mkEntryFromDrv =
           drv:

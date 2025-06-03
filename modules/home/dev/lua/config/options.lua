@@ -83,3 +83,16 @@ vim.cmd("colorscheme rose-pine")
 -- vim.cmd("colorscheme rose-pine-main")
 -- vim.cmd("colorscheme rose-pine-moon")
 -- vim.cmd("colorscheme rose-pine-dawn")
+
+require("luau-lsp").setup({
+	platform = {
+		type = "standard",
+	},
+	sourcemap = {
+		enabled = false,
+	},
+	fflags = {
+		enable_new_solver = true,
+		sync = true,
+	},
+})
