@@ -68,6 +68,7 @@ in
       zathura
       hunspell
       hunspellDicts.en_US
+      pdftk
 
       # mail
       thunderbird
@@ -110,5 +111,8 @@ in
 
       # computer
       btop
+
+      # meetings
+      zoom-us
     ];
 }
