@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ flake, pkgs, ... }:
+{
   # dewm
   programs.hyprland.enable = true;
   programs.hyprland.withUWSM = true;
@@ -45,7 +46,10 @@
   ];
   xdg.portal.config = {
     common = {
-      default = ["hyprland" "gtk"];
+      default = [
+        "hyprland"
+        "gtk"
+      ];
     };
   };
 
@@ -68,5 +72,9 @@
     (callPackage ./pkg/sddm-astronaut-theme.nix {
       theme = "hyprland_kath";
     })
+
+    # quickshell
+    flake.inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
+    qt6.qtdeclarative
   ];
 }

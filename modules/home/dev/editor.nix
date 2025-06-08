@@ -37,6 +37,7 @@
       "vtsls"
       "scss"
       "liquid"
+      "qml"
     ];
 
     userSettings = {
@@ -174,5 +175,6 @@
     package-version-server
     luau-lsp
     nixfmt-rfc-style
+    # qml is defined globally
   ];
 }
