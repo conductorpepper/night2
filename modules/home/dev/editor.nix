@@ -155,10 +155,9 @@
   };
 
   programs.helix.enable = true;
-  programs.neovim.enable = true;
 
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "hx";
   };
 
   home.packages = with pkgs; [

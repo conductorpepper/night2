@@ -6,7 +6,6 @@
   imports = [
     ./editor.nix
     ./git.nix
-    ./lazyvim.nix
     ./shell.nix
   ];
 
