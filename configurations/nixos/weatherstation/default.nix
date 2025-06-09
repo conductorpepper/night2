@@ -10,8 +10,8 @@
   system.stateVersion = "25.05";
 
   bundles.jellyfin.enable = true;
-  # bundles.tailscale.enable = true;
-  # bundles.tailscale.key = "tskey-auth-k2dr2qArg521CNTRL-RE6UF8ETaC9AdifA3BnnC9UmRXeaRxZtY"; # single-use
+  bundles.tailscale.enable = true;
+  bundles.tailscale.key = "tskey-auth-k2dr2qArg521CNTRL-RE6UF8ETaC9AdifA3BnnC9UmRXeaRxZtY"; # single-use
   bundles.power.enable = true;
   utils.exssd.enable = true;
   utils.monitors.monitors = [
