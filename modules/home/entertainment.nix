@@ -2,13 +2,16 @@
   flake,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (flake) inputs;
   system = pkgs.stdenv.hostPlatform.system;
-in {
+in
+{
   services.arrpc.enable = true;
 
-  home.packages = with pkgs;
+  home.packages =
+    with pkgs;
     [
       # chat
       vesktop
@@ -23,8 +26,9 @@ in {
       komikku # comic/manga reader
       everest-mons # celeste mods
       prismlauncher # minecraft
+      mcpelauncher-ui-qt # mc bedrock
       # sm64coopdx # since it requires a rom in the nix store; easier to `nix run`
-      (tetrio-desktop.override {withTetrioPlus = true;})
+      (tetrio-desktop.override { withTetrioPlus = true; })
 
       # video
       grayjay
