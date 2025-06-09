@@ -17,7 +17,6 @@
     {
       # application
       ${application "x-desktop"} = list [
-        "nvim"
         "Helix"
         "writer"
       ];
@@ -27,17 +26,14 @@
         "writer"
       ];
       ${application "xml"} = list [
-        "nvim"
         "Helix"
         "writer"
       ];
       ${application "zip"} = list [ "org.gnome.FileRoller" ];
       ${application "edje"} = list [
-        "nvim"
         "Helix"
       ];
       ${application "json"} = list [
-        "nvim"
         "Helix"
       ];
       ${application "octet-stream"} = list [ "Helix" ];
@@ -49,7 +45,6 @@
       ${application "x-extension-xhtml"} = list [ "zen" ];
       ${application "x-extension-xht"} = list [ "zen" ];
       ${application "x-extension-x-wine-extension-ini"} = list [
-        "nvim"
         "Helix"
       ];
       ${application "pdf"} = list [
@@ -91,12 +86,10 @@
       # text
       ${text "html"} = list [ "zen" ];
       ${text "plain"} = list [
-        "nvim"
         "Helix"
         "writer"
       ];
       ${text "markdown"} = list [
-        "nvim"
         "Helix"
       ];
 
