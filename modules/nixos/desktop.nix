@@ -72,9 +72,5 @@
     (callPackage ./pkg/sddm-astronaut-theme.nix {
       theme = "hyprland_kath";
     })
-
-    # quickshell
-    flake.inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
-    qt6.qtdeclarative
   ];
 }
