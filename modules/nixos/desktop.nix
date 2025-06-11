@@ -1,4 +1,4 @@
-{ flake, pkgs, ... }:
+{ pkgs, ... }:
 {
   # dewm
   programs.hyprland.enable = true;
@@ -73,4 +73,12 @@
       theme = "hyprland_kath";
     })
   ];
+
+  # from a caelestia issue
+  system.activationScripts.binFishSymlink = ''
+    mkdir -p /bin
+    ln -sfn ${pkgs.fish}/bin/fish /bin/fish
+    ln -sfn ${pkgs.python313}/bin/python3 /bin/python3
+    ln -sfn ${pkgs.python313}/bin/python /bin/python
+  '';
 }

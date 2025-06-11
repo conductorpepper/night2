@@ -93,7 +93,7 @@ in
       exec-once = [
         "lxqt-policykit-agent"
 
-        "qs -c caelestia"
+        # "qs -c caelestia"
 
         "cliphist wipe"
         "wl-paste --type text --watch cliphist store"
@@ -103,10 +103,6 @@ in
         "fcitx5 -d --replace &"
         "fcitx5-remote -r"
       ];
-
-      debug = {
-        disable_logs = false;
-      };
 
       misc = {
         disable_hyprland_logo = true;
