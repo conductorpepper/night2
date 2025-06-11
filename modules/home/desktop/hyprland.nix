@@ -104,6 +104,10 @@ in
         "fcitx5-remote -r"
       ];
 
+      debug = {
+        disable_logs = false;
+      };
+
       misc = {
         disable_hyprland_logo = true;
         animate_manual_resizes = true;
