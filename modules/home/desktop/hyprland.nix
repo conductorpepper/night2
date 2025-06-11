@@ -93,6 +93,7 @@ in
       exec-once = [
         "lxqt-policykit-agent"
 
+        "hyprpanel"
         # "qs -c caelestia"
 
         "cliphist wipe"
