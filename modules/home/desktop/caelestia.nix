@@ -1,7 +1,6 @@
 {
   flake,
   pkgs,
-  lib,
   ...
 }:
 {
@@ -14,6 +13,15 @@
 
   programs.git.enable = true;
   programs.fish.enable = true;
+
+  wayland.windowManager.hyprland.settings = {
+    layerrule = [
+      "noanim, caelestia-(launcher|osd|notifications|border-exclusion)"
+      "animation fade, caelestia-(drawers|background)"
+      "order 1, caelestia-border-exclusion"
+      "order 2, caelestia-bar"
+    ];
+  };
 
   # TODO: add app2unit when i can use it
   home.packages =
