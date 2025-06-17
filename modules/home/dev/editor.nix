@@ -38,6 +38,7 @@
       "scss"
       "liquid"
       "qml"
+      "csharp"
     ];
 
     userSettings = {
@@ -86,6 +87,7 @@
       lsp = {
         rust-analyzer.binary.path_lookup = true;
         nix.binary.path_lookup = true;
+        omnisharp.binary.path_lookup = true;
         luau-lsp.settings = {
           luau-lsp = { };
           ext = {
@@ -151,6 +153,17 @@
             ];
           };
         };
+        CSharp = {
+          format_on_save = "on";
+          formatter = {
+            external = {
+              command = "dotnet-csharpier";
+              arguments = [
+                "--"
+              ];
+            };
+          };
+        };
       };
     };
   };
@@ -175,6 +188,8 @@
     package-version-server
     luau-lsp
     nixfmt-rfc-style
+    omnisharp-roslyn
+    csharpier
     # qml is defined globally
   ];
 }
