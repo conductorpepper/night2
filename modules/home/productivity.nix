@@ -114,5 +114,8 @@ in
 
       # meetings
       zoom-us
+
+      # desktop things
+      app2unit
     ];
 }
