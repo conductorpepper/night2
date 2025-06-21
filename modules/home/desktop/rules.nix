@@ -13,14 +13,14 @@
           "float, class:^(${class})(.*)$"
         ];
 
-        floatcs =
-          class: xp: yp:
-          (
-            [
-              "size ${xp}% ${yp}%, class:^(${class})(.*)$"
-            ]
-            ++ (floatc class)
-          );
+        # floatcs =
+        #   class: xp: yp:
+        #   (
+        #     [
+        #       "size ${xp}% ${yp}%, class:^(${class})(.*)$"
+        #     ]
+        #     ++ (floatc class)
+        #   );
       in
       lib.lists.flatten [
         (float "Open File")
