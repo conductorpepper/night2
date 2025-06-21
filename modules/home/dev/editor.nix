@@ -166,6 +166,17 @@
         };
       };
     };
+
+    # take from a github issue
+    userKeymaps = [
+      {
+        context = "VimControl && !menu";
+        bindings = {
+          H = "pane::ActivatePrevItem";
+          L = "pane::ActivateNextItem";
+        };
+      }
+    ];
   };
 
   programs.helix.enable = true;
