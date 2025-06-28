@@ -17,20 +17,15 @@ in
     };
 
   config = lib.mkIf cfg.enable {
-    virtualisation.docker = {
+    virtualisation.docker.rootless = {
       enable = true;
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-        daemon.settings = {
-          pruning = {
-            enabled = true;
-            interval = "24h";
-          };
+      setSocketVariable = true;
+      daemon.settings = {
+        pruning = {
+          enabled = true;
+          interval = "24h";
         };
       };
     };
-
-    users.users.${flake.config.me.username}.extraGroups = [ "docker" ];
   };
 }
