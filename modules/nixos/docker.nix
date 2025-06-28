@@ -1,6 +1,8 @@
+# it's podman.
 {
   flake,
   config,
+  pkgs,
   lib,
   ...
 }:
@@ -17,15 +19,28 @@ in
     };
 
   config = lib.mkIf cfg.enable {
-    virtualisation.docker.rootless = {
+    virtualisation.containers = {
       enable = true;
-      setSocketVariable = true;
-      daemon.settings = {
-        pruning = {
-          enabled = true;
-          interval = "24h";
+      storage.settings = {
+        storage = {
+          driver = "btrfs";
+          graphroot = "/var/lib/containers/storage";
+          runroot = "/run/containers/storage";
         };
       };
     };
+
+    virtualisation.podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+      autoPrune.enable = true;
+    };
+
+    users.users.${flake.config.me.username}.extraGroups = [ "podman" ];
+
+    environment.systemPackages = with pkgs; [
+      podman-tui
+    ];
   };
 }
