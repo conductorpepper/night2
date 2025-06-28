@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  flake,
+  config,
+  lib,
+  ...
+}:
 let
   cfg = config.bundles.docker;
 in
@@ -25,5 +30,7 @@ in
         };
       };
     };
+
+    users.users.${flake.config.me.username}.extraGroups = [ "docker" ];
   };
 }
