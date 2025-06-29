@@ -2,13 +2,13 @@
 {
   home.pointerCursor = {
     package = pkgs.rose-pine-cursor;
-    name = "BreezeX-RosePineDawn-Linux";
+    name = "BreezeX-RosePine-Linux";
   };
 
   xdg.enable = true;
   xdg.configFile."fcitx5/conf/classicui.conf" = {
     text = ''
-      Theme=rose-pine-dawn
+      Theme=rose-pine
     '';
   };
 
@@ -16,12 +16,12 @@
     enable = true;
 
     theme = {
-      name = "rose-pine-dawn";
+      name = "rose-pine";
       package = pkgs.rose-pine-gtk-theme;
     };
 
     iconTheme = {
-      name = "rose-pine-dawn";
+      name = "rose-pine";
       package = pkgs.rose-pine-icon-theme;
     };
 
@@ -44,8 +44,8 @@
     userSettings = {
       theme = {
         mode = "system";
-        light = "Rosé Pine Dawn";
-        dark = "Rosé Pine Moon";
+        light = "Rosé Pine";
+        dark = "Rosé Pine";
       };
 
       icon_theme = "Soft Charmed Icons";
@@ -56,20 +56,20 @@
   };
 
   programs.ghostty.settings = {
-    theme = "rose-pine-dawn";
+    theme = "rose-pine";
     font-family = "JetBrainsMono Nerd Font";
     window-padding-x = 10;
     window-padding-y = 10;
   };
 
   programs.helix.settings = {
-    theme = "rose_pine_dawn";
+    theme = "rose_pine";
   };
 
   xdg.configFile."starship.toml" = {
     source = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/rose-pine/starship/ce244cb048e19ef6207936c3087141c8a796bca5/rose-pine-dawn.toml";
-      hash = "sha256-G70HRjb4yIB90668op/Bz2kOde9g4+1b5EBQyD1qvug=";
+      url = "https://raw.githubusercontent.com/rose-pine/starship/ce244cb048e19ef6207936c3087141c8a796bca5/rose-pine.toml";
+      hash = "sha256-0nK3gRQDuoH+jAvKWbM04rVUXtFNRgvB86jKhuvnr9g=";
     };
   };
 

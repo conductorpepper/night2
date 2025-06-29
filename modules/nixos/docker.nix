@@ -40,6 +40,8 @@ in
     users.users.${flake.config.me.username}.extraGroups = [ "podman" ];
 
     environment.systemPackages = with pkgs; [
+      podman-compose
+      podman-desktop
       podman-tui
     ];
   };
