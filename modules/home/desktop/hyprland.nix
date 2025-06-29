@@ -55,7 +55,7 @@ in
           "$mod, Q, exec, ghostty" # terminal
           "$mod, S, exec, zen" # browser; TODO: make this faster to open and not take like one second
           "$mod, A, exec, xdg-open $HOME" # files
-          "$mod, W, exec, anyrun" # launcher
+          "$mod, W, exec, pgrep anyrun && pkill anyrun || anyrun" # launcher
 
           # utils
           "$mod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
@@ -154,7 +154,6 @@ in
     wl-clipboard
     cliphist
     wofi
-    anyrun
     xdotool
     inputs.hyprpanel.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];

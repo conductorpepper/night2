@@ -60,6 +60,11 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+      # no follows for the cache to work
+    };
   };
 
   outputs =

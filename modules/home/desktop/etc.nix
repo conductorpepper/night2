@@ -1,6 +1,7 @@
 {
-  lib,
+  flake,
   pkgs,
+  lib,
   passthru,
   ...
 }:
@@ -81,25 +82,78 @@
     };
 
   programs.wofi.enable = true;
-  programs.anyrun = {
-    enable = true;
-    config = {
-      closeOnClick = true;
-      y.fraction = 0.4;
-    };
-    extraConfigFiles = {
-      "applications.ron" = ''
-        Config(
-          desktop_actions: true,
-          max_entries: 5,
-          preprocess_exec_script: Some("${./preprocess.nu}"),
-          terminal: Some(Terminal(
-            command: "app2unit-term",
-            args: "-e {}",
-          )),
-        )
+  programs.anyrun =
+    let
+      anyrun = flake.inputs.anyrun.packages.${pkgs.stdenv.hostPlatform.system};
+    in
+    {
+      enable = true;
+      package = anyrun.default;
+      config = {
+        plugins = with anyrun; [
+          applications
+          dictionary
+          shell
+          symbols
+          translate
+          websearch
+        ];
+        closeOnClick = true;
+        y.fraction = 0.4;
+      };
+      extraConfigFiles = {
+        "applications.ron".text = ''
+          Config(
+            desktop_actions: true,
+            max_entries: 5,
+            preprocess_exec_script: Some("${./preprocess.nu}"),
+            terminal: Some(Terminal(
+              command: "app2unit-term",
+              args: "-e {}",
+            )),
+          )
+        '';
+        "dictionary.ron".text = ''
+          Config(
+            prefix: ":def",
+            max_entries: 5,
+          )
+        '';
+        "shell.ron".text = ''
+          Config(
+            prefix: ":nu",
+            shell: Some("nu"),
+          )
+        '';
+        "symbols.ron".text = ''
+          Config(
+            prefix: "",
+            symbols: {},
+            max_entries: 3,
+          )
+        '';
+        "translate.ron".text = ''
+          prefix: ":",
+          language_delimiter: ">",
+          max_entries: 3,
+        '';
+        "websearch.ron".text = ''
+          Config(
+            prefix: "?",
+            engines: [DuckDuckGo],
+          )
+        '';
+      };
+      extraCss = ''
+        #window {
+          background: transparent;
+          opacity: 0%;
+        }
       '';
     };
+
+  home.sessionVariables = {
+    APP2UNIT_TYPE = "service"; # vesktop kinda doesn't like scope with anyrun
   };
 
   # utils
