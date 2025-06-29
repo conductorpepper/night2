@@ -23,12 +23,12 @@
     ];
   };
 
-  # TODO: add app2unit when i can use it
   home.packages =
     [
       flake.inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
     ]
     ++ (with pkgs; [
+      app2unit
       material-symbols
       nerd-fonts.jetbrains-mono
       ibm-plex

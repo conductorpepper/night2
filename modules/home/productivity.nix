@@ -118,4 +118,8 @@ in
       # desktop things
       app2unit
     ];
+
+  home.shellAliases = {
+    "xdg-open" = "app2unit-open";
+  };
 }
