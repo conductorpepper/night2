@@ -55,7 +55,7 @@ in
           "$mod, Q, exec, ghostty" # terminal
           "$mod, S, exec, zen" # browser; TODO: make this faster to open and not take like one second
           "$mod, A, exec, xdg-open $HOME" # files
-          "$mod, W, exec, pgrep anyrun && pkill anyrun || anyrun" # launcher
+          "$mod, W, exec, fuzzel --launch-prefix='app2unit --fuzzel-compat --'" # launcher
 
           # utils
           "$mod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"

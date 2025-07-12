@@ -82,12 +82,15 @@
     };
 
   programs.wofi.enable = true;
+  programs.fuzzel = {
+    enable = true;
+  };
   programs.anyrun =
     let
       anyrun = flake.inputs.anyrun.packages.${pkgs.stdenv.hostPlatform.system};
     in
     {
-      enable = true;
+      enable = false;
       package = anyrun.default;
       config = {
         plugins = with anyrun; [
