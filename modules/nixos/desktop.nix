@@ -2,9 +2,9 @@
 {
   # dewm
   programs.hyprland.enable = false;
-  programs.hyprland.withUWSM = true;
+  programs.hyprland.withUWSM = false;
   programs.uwsm = {
-    enable = true;
+    enable = false;
   };
 
   services.desktopManager.plasma6 = {
@@ -17,7 +17,7 @@
     sddm = {
       enable = true;
       wayland.enable = true;
-      package = pkgs.kdePackages.sddm;
+      # package = pkgs.kdePackages.sddm;
       theme = "sddm-astronaut-theme";
       extraPackages = with pkgs.kdePackages; [
         qtmultimedia
