@@ -1,9 +1,13 @@
 { pkgs, ... }:
 {
   # dewm
-  programs.hyprland.enable = true;
+  programs.hyprland.enable = false;
   programs.hyprland.withUWSM = true;
   programs.uwsm = {
+    enable = true;
+  };
+
+  services.desktopManager.plasma6 = {
     enable = true;
   };
 
@@ -24,8 +28,8 @@
   };
 
   # desktop utils
-  programs.hyprlock.enable = true;
-  services.hypridle.enable = true;
+  programs.hyprlock.enable = false;
+  services.hypridle.enable = false;
 
   # fonts
   fonts.packages = with pkgs; [

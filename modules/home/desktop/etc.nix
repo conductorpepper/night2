@@ -8,7 +8,7 @@
 {
   # lock
   # some parts are from https://gist.github.com/ashish-kus/dd562b0bf5e8488a09e0b9c289f4574c
-  programs.hyprlock.enable = true;
+  programs.hyprlock.enable = false;
   programs.hyprlock.settings = {
     general = {
       disable_loading_bar = true;
@@ -44,7 +44,7 @@
   };
 
   # idle
-  services.hypridle.enable = true;
+  services.hypridle.enable = false;
   services.hypridle.settings =
     let
       toggleOutputs =

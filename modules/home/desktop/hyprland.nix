@@ -8,7 +8,7 @@ let
 in
 {
   wayland.windowManager.hyprland = {
-    enable = true;
+    enable = false;
     systemd.enable = false; # conflicts with uwsm
   };
 
