@@ -188,6 +188,7 @@
   home.packages = with pkgs; [
     # editors
     jetbrains.idea-community-bin
+    kdePackages.kdevelop
 
     # language
     rust-analyzer

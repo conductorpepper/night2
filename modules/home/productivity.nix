@@ -30,14 +30,11 @@ in
     [
       # audio
       easyeffects
-      cava
-      cmus
 
       # browser
       wike
       kiwix
       inputs.zen-browser.packages.${system}.default
-      netsurf.browser # i like it
 
       # wine
       wineWowPackages.waylandFull
@@ -45,14 +42,10 @@ in
       # files
       ranger
       unzip
-      # ventoy # marked insecure and i don't really need it rn
-      file-roller
-      impression
       veracrypt
       deja-dup
 
       # image
-      opentabletdriver
       krita
       curtail
       tuxpaint
@@ -62,8 +55,6 @@ in
       # writing
       libreoffice-qt
       obsidian
-      gnome-text-editor
-      apostrophe
       logseq
       zathura
       hunspell
@@ -77,21 +68,6 @@ in
 
       # pass
       keepassxc
-
-      # screenshot
-      grimblast
-
-      (writeShellScriptBin "areacopy" ''
-        grimblast copy area
-      '')
-
-      (writeShellScriptBin "areasave" ''
-        grimblast save area
-      '')
-
-      (writeShellScriptBin "activecopy" ''
-        grimblast copy active
-      '')
 
       # video
       vlc
@@ -120,6 +96,6 @@ in
     ];
 
   home.shellAliases = {
-    "xdg-open" = "app2unit-open";
+    # "xdg-open" = "app2unit-open";
   };
 }

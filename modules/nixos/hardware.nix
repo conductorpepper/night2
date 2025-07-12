@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   # backlight
   hardware.brillo.enable = true;
 
@@ -28,7 +29,7 @@
     ];
   };
 
-  hardware.opentabletdriver.enable = true; # for my huion :3
+  hardware.opentabletdriver.enable = false; # for my huion :3 (false because handled by kde)
 
   # audio
   security.rtkit.enable = true;

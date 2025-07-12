@@ -40,7 +40,7 @@
 
   # qt
   qt.enable = true;
-  qt.platformTheme = "qt5ct";
+  qt.platformTheme = "kde6";
 
   # xdg portal
   xdg.portal.enable = true;
@@ -69,7 +69,7 @@
 
   # utility packages
   environment.systemPackages = with pkgs; [
-    nemo-with-extensions
+    # nemo-with-extensions
     lxqt.lxqt-policykit
 
     # ...?
