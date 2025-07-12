@@ -1,11 +1,11 @@
 {
   imports = [
+    ./themes/basic.nix
     ./themes/common.nix
-    ./themes/koki-o.nix
   ];
 
   home.pointerCursor = {
-    enable = true;
+    enable = false;
     gtk.enable = true;
     hyprcursor.enable = true;
     x11.enable = true;
