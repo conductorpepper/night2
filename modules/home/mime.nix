@@ -11,33 +11,34 @@
       image = name: "image/${name}";
       text = name: "text/${name}";
       video = name: "video/${name}";
+      audio = name: "audio/${name}";
       x-scheme-handler = name: "x-scheme-handler/${name}";
       list = builtins.map (x: x + ".desktop");
     in
     {
       # application
       ${application "x-desktop"} = list [
-        "Helix"
+        "org.kde.kate"
         "writer"
       ];
       ${application "x-krita"} = list [ "krita_kra" ];
       ${application "x-zerosize"} = list [
-        "Helix"
+        "org.kde.kate"
         "writer"
       ];
       ${application "xml"} = list [
-        "Helix"
+        "org.kde.kate"
         "writer"
       ];
-      ${application "zip"} = list [ "org.gnome.FileRoller" ];
+      ${application "zip"} = list [ "org.kde.ark" ];
       ${application "edje"} = list [
-        "Helix"
+        "org.kde.kate"
       ];
       ${application "json"} = list [
-        "Helix"
+        "org.kde.kate"
       ];
-      ${application "octet-stream"} = list [ "Helix" ];
-      ${application "x-godot-resource"} = list [ "Helix" ];
+      ${application "octet-stream"} = list [ "org.kde.kate" ];
+      ${application "x-godot-resource"} = list [ "org.kde.kate" ];
       ${application "x-extension-htm"} = list [ "zen" ];
       ${application "x-extension-html"} = list [ "zen" ];
       ${application "x-extension-shtml"} = list [ "zen" ];
@@ -45,39 +46,40 @@
       ${application "x-extension-xhtml"} = list [ "zen" ];
       ${application "x-extension-xht"} = list [ "zen" ];
       ${application "x-extension-x-wine-extension-ini"} = list [
-        "Helix"
+        "org.kde.kate"
       ];
       ${application "pdf"} = list [
-        "okular"
+        "org.kde.okular"
         "qpdfview"
         "mupdf"
       ];
 
       # image
       ${image "gif"} = list [
+        "org.kde.gwenview"
         "krita_gif"
         "zen"
       ];
       ${image "jpeg"} = list [
-        "feh"
+        "org.kde.gwenview"
         "krita_jpeg"
         "zen"
         "draw"
       ];
       ${image "jpg"} = list [
-        "feh"
+        "org.kde.gwenview"
         "krita_jpg"
         "zen"
         "draw"
       ];
       ${image "png"} = list [
-        "feh"
+        "org.kde.gwenview"
         "krita_png"
         "zen"
         "draw"
       ];
       ${image "svg+xml"} = list [
-        "feh"
+        "org.kde.gwenview"
         "krita_svg"
         "zen"
         "draw"
@@ -86,11 +88,11 @@
       # text
       ${text "html"} = list [ "zen" ];
       ${text "plain"} = list [
-        "Helix"
+        "org.kde.kate"
         "writer"
       ];
       ${text "markdown"} = list [
-        "Helix"
+        "org.kde.kate"
       ];
 
       # video
@@ -102,6 +104,45 @@
         "mpv"
         "vlc"
       ];
+      ${video "x-msvideo"} = list [
+        "mpv"
+        "vlc"
+      ];
+      ${video "mpeg"} = list [
+        "mpv"
+        "vlc"
+      ];
+      ${video "ogg"} = list [
+        "mpv"
+        "vlc"
+      ];
+      ${video "mp2t"} = list [
+        "mpv"
+        "vlc"
+      ];
+      ${video "webm"} = list [
+        "mpv"
+        "vlc"
+      ];
+      ${video "3gpp"} = list [
+        "mpv"
+        "vlc"
+      ];
+      ${video "3gpp2"} = list [
+        "mpv"
+        "vlc"
+      ];
+
+      # audio
+      ${audio "acc"} = list [ "org.kde.elisa" ];
+      ${audio "midi"} = list [ "org.kde.elisa" ];
+      ${audio "x-midi"} = list [ "org.kde.elisa" ];
+      ${audio "mpeg"} = list [ "org.kde.elisa" ];
+      ${audio "ogg"} = list [ "org.kde.elisa" ];
+      ${audio "wav"} = list [ "org.kde.elisa" ];
+      ${audio "webm"} = list [ "org.kde.elisa" ];
+      ${audio "3gp"} = list [ "org.kde.elisa" ];
+      ${audio "3gpp2"} = list [ "org.kde.elisa" ];
 
       # x-scheme-handler
       ${x-scheme-handler "discord"} = list [ "vesktop" ]; # may not actually work
@@ -114,15 +155,11 @@
 
       # misc
       "inode/directory" = list [
-        "nemo"
-        "thunar"
-        "org.gnome.Nautilus"
+        "org.kde.dolphin"
         "ranger"
       ];
       "inode/mount-point" = list [
-        "nemo"
-        "thunar"
-        "org.gnome.Nautilus"
+        "org.kde.dolphin"
         "ranger"
       ];
       "ror2mm" = list [ ".gale-wrapped-handler" ];
