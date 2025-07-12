@@ -43,7 +43,7 @@
   # storage
   services.udisks2.enable = true;
   services.gvfs.enable = true;
-  programs.gnome-disks.enable = true;
+  programs.gnome-disks.enable = false;
 
   # touch
   services.touchegg.enable = true;
@@ -83,11 +83,12 @@
   # utility packages
   environment.systemPackages = with pkgs; [
     veracrypt
+    kdePackages.isoimagewriter
+    kdePackages.partitionmanager
 
     pavucontrol
     pamixer
 
     system-config-printer
-    simple-scan
   ];
 }

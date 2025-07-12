@@ -51,6 +51,7 @@ in
       tuxpaint
       aseprite
       glaxnimate
+      kdePackages.kolourpaint
 
       # writing
       libreoffice-qt
@@ -60,6 +61,7 @@ in
       hunspell
       hunspellDicts.en_US
       pdftk
+      kdePackages.kcharselect
 
       # mail
       thunderbird
@@ -72,9 +74,7 @@ in
       # video
       vlc
       mpv
-      davinci-resolve
       kdePackages.kdenlive
-      flowblade
       yt-dlp
 
       # learning
@@ -82,14 +82,20 @@ in
 
       # reading
       kdePackages.okular # set explicitly
-      qpdfview
-      mupdf
 
       # computer
       btop
+      kdePackages.ksystemlog
 
       # meetings
       zoom-us
+
+      # printers & scanners
+      kdePackages.skanlite
+      kdePackages.skanpage
+
+      # math
+      kdePackages.kcalc
 
       # desktop things
       app2unit
