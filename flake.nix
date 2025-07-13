@@ -20,11 +20,6 @@
     # ani-cli
     nyxexprs = {
       url = "github:notashelf/nyxexprs";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-        systems.follows = "systems";
-      };
     };
 
     disko = {
@@ -49,21 +44,6 @@
     nix-lemons = {
       url = "github:conductorpepper/nix-lemons";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprpanel = {
-      url = "github:Jas-SinghFSU/HyprPanel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    anyrun = {
-      url = "github:anyrun-org/anyrun";
-      # no follows for the cache to work
     };
 
     plasma-manager = {
