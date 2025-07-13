@@ -41,9 +41,24 @@
     };
   };
 
+  programs.plasma.kwin = {
+    nightLight = {
+      enable = true;
+      mode = "times";
+      time = {
+        morning = "04:00";
+        evening = "17:00";
+      };
+    };
+
+    effects = {
+      wobblyWindows.enable = true;
+    };
+  };
+
   programs.konsole = {
     enable = true;
-    defaultProfile = "Nushell.profile";
+    defaultProfile = "Nushell";
     profiles = {
       "Nushell" = {
         command = lib.getExe config.programs.nushell.package;
