@@ -1,7 +1,29 @@
 { pkgs, ... }:
 {
+  home.pointerCursor = {
+    name = "breeze_cursors";
+    package = pkgs.kdePackages.breeze-gtk;
+  };
+
   xdg.enable = true;
-  gtk.enable = true;
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Breeze-Dark";
+      package = pkgs.kdePackages.breeze-gtk;
+    };
+
+    iconTheme = {
+      name = "Breeze Dark";
+      package = pkgs.kdePackages.breeze-icons;
+    };
+
+    font = {
+      name = "Inter";
+      package = pkgs.inter;
+    };
+  };
 
   programs.zed-editor = {
     extensions = [
