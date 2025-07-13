@@ -59,7 +59,7 @@ in
 
     optimise = {
       automatic = true;
-      dates = [ "04:00" ];
+      dates = [ "12:00" ];
     };
   };
 

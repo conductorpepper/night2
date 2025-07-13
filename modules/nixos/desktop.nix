@@ -1,12 +1,6 @@
 { pkgs, ... }:
 {
   # dewm
-  programs.hyprland.enable = false;
-  programs.hyprland.withUWSM = false;
-  programs.uwsm = {
-    enable = false;
-  };
-
   services.desktopManager.plasma6 = {
     enable = true;
   };
@@ -26,10 +20,6 @@
       ];
     };
   };
-
-  # desktop utils
-  programs.hyprlock.enable = false;
-  services.hypridle.enable = false;
 
   # fonts
   fonts.packages = with pkgs; [
@@ -51,7 +41,6 @@
   xdg.portal.config = {
     common = {
       default = [
-        "hyprland"
         "gtk"
       ];
     };
@@ -77,12 +66,4 @@
       theme = "hyprland_kath";
     })
   ];
-
-  # from a caelestia issue
-  system.activationScripts.binFishSymlink = ''
-    mkdir -p /bin
-    ln -sfn ${pkgs.fish}/bin/fish /bin/fish
-    ln -sfn ${pkgs.python313}/bin/python3 /bin/python3
-    ln -sfn ${pkgs.python313}/bin/python /bin/python
-  '';
 }

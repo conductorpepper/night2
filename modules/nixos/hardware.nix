@@ -88,7 +88,5 @@
 
     pavucontrol
     pamixer
-
-    system-config-printer
   ];
 }
