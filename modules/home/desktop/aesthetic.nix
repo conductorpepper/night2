@@ -1,7 +1,6 @@
 {
   imports = [
-    ./themes/basic.nix
-    ./themes/common.nix
+    ./themes/godot.nix
   ];
 
   home.pointerCursor = {

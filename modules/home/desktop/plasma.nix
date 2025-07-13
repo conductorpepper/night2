@@ -1,5 +1,6 @@
 {
   flake,
+  pkgs,
   lib,
   config,
   passthru,
@@ -13,6 +14,11 @@
   programs.plasma.enable = true;
   programs.plasma.workspace.colorScheme = "BreezeDark";
   programs.plasma.workspace.theme = "breeze-dark";
+  programs.plasma.workspace.lookAndFeel = "org.kde.breezedark.desktop";
+  programs.plasma.workspace.cursor = {
+    size = 24;
+    theme = "Breeze Dark";
+  };
 
   programs.plasma.panels = [
     {
@@ -49,5 +55,31 @@
         command = "ani-cli";
       };
     };
+  };
+
+  # not particularly plasma stuff
+  xdg.enable = true;
+  programs.zed-editor = {
+    extensions = [
+      # themes
+      "charmed-icons"
+    ];
+
+    userSettings = {
+      theme = {
+        mode = "system";
+      };
+
+      icon_theme = "Base Charmed Icons";
+
+      ui_font_size = 16;
+      buffer_font_size = 16;
+    };
+  };
+
+  programs.ghostty.settings = {
+    font-family = "JetBrainsMono Nerd Font";
+    window-padding-x = 10;
+    window-padding-y = 10;
   };
 }
