@@ -4,6 +4,7 @@
   services.desktopManager.plasma6 = {
     enable = true;
   };
+  programs.kdeconnect.enable = true;
 
   # greeter
   services.displayManager = {

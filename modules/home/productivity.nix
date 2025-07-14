@@ -104,4 +104,8 @@ in
   home.shellAliases = {
     # "xdg-open" = "app2unit-open";
   };
+
+  # because i'm using zen imperatively, i just jerry rig this up
+  home.file.".mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json".source =
+    "${pkgs.kdePackages.plasma-browser-integration}/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json";
 }
