@@ -53,8 +53,6 @@
     effects = {
       wobblyWindows.enable = true;
     };
-
-    virtualDesktops.number = 4;
   };
 
   programs.konsole = {
