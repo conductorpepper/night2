@@ -2,9 +2,10 @@
   flake,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
-    flake.inputs.nix-index-database.hmModules.nix-index
+    flake.inputs.nix-index-database.homeModule.nix-index
   ];
 
   nix = {
