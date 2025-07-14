@@ -5,7 +5,7 @@
 }:
 {
   imports = [
-    flake.inputs.nix-index-database.homeModule.nix-index
+    flake.inputs.nix-index-database.homeModules.nix-index
   ];
 
   nix = {
