@@ -51,6 +51,7 @@ in
       tuxpaint
       aseprite
       glaxnimate
+      gimp3-with-plugins
       kdePackages.kolourpaint
 
       # writing
