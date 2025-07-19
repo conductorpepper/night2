@@ -62,11 +62,11 @@
       "Nushell" = {
         command = lib.getExe config.programs.nushell.package;
       };
-      "Zsh" = {
-        command = lib.getExe config.programs.zsh.package;
-      };
       "Anime" = {
         command = "ani-cli";
+      };
+      "Anime Dub" = {
+        command = "ani-cli --dub";
       };
     };
   };
