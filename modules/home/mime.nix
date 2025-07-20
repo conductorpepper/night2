@@ -152,6 +152,10 @@
       ${x-scheme-handler "ror2mm"} = list [ ".gale-wrapped-handler" ];
       ${x-scheme-handler "roblox-studio-auth"} = list [ "org.vinegarhq.Vinegar.studio" ];
       ${x-scheme-handler "roblox-player"} = list [ "org.vinegarhq.Sober" ];
+      ${x-scheme-handler "mailto"} = list [
+        "thunderbird"
+        "deltachat"
+      ];
 
       # misc
       "inode/directory" = list [
