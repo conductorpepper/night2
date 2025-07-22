@@ -20,6 +20,7 @@ in
 
       # social
       tuba
+      kdePackages.tokodon
 
       # games
       lutris
