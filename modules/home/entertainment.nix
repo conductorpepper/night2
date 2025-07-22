@@ -19,7 +19,6 @@ in
       deltachat-desktop
 
       # social
-      tuba
       kdePackages.tokodon
 
       # games
