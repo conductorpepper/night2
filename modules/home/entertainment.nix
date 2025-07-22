@@ -18,6 +18,9 @@ in
       signal-desktop
       deltachat-desktop
 
+      # social
+      tuba
+
       # games
       lutris
       umu-launcher

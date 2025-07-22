@@ -68,6 +68,9 @@
       "Anime Dub" = {
         command = "ani-cli --dub";
       };
+      "Internet" = {
+        command = "ping www.google.com";
+      };
     };
   };
 
