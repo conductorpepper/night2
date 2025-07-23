@@ -66,7 +66,6 @@ in
 
       # mail
       thunderbird
-      kdePackages.kontact
       tutanota-desktop # ...doesn't open
       protonmail-desktop # ...also doesn't open
 
