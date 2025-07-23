@@ -66,8 +66,9 @@ in
 
       # mail
       thunderbird
-      tutanota-desktop
-      protonmail-desktop # ...
+      kdePackages.kontact
+      tutanota-desktop # ...doesn't open
+      protonmail-desktop # ...also doesn't open
 
       # pass
       keepassxc
@@ -82,11 +83,12 @@ in
       anki-bin
 
       # reading
-      kdePackages.okular # set explicitly
+      kdePackages.okular
 
       # computer
       btop
       kdePackages.ksystemlog
+      kdePackages.filelight
 
       # meetings
       zoom-us
