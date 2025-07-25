@@ -54,13 +54,13 @@ in
   nix = {
     gc = {
       automatic = true;
-      dates = "weekly";
+      dates = "Mon *-*-* 12:00:00";
       options = "--delete-older-than 14d";
     };
 
     optimise = {
       automatic = true;
-      dates = [ "12:00" ];
+      dates = "Mon *-*-* 14:00:00";
     };
   };
 
