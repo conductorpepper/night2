@@ -1,5 +1,6 @@
 {
   flake,
+  pkgs,
   lib,
   config,
   passthru,
@@ -99,4 +100,9 @@
     window-padding-x = 10;
     window-padding-y = 10;
   };
+
+  # misc packages
+  home.packages = with pkgs.kdePackages; [
+    yakuake
+  ];
 }
