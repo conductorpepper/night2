@@ -187,7 +187,7 @@
 
   home.packages = with pkgs; [
     # editors
-    jetbrains.idea-community-bin
+    # jetbrains.idea-community-bin # ...broken?
     kdePackages.kdevelop
 
     # language
