@@ -102,8 +102,8 @@
   };
 
   xdg.configFile."starship.toml".source = pkgs.fetchurl {
-    url = "https://github.com/starship/starship/blob/v1.23.0/docs/public/presets/toml/pastel-powerline.toml";
-    hash = lib.fakeHash;
+    url = "https://raw.githubusercontent.com/starship/starship/refs/tags/v1.23.0/docs/public/presets/toml/pastel-powerline.toml";
+    hash = "sha256-9ljlFPr9IkQ1Ri1Y29EMj4qMHeW1FV3ltq7spenC+mc=";
   };
 
   # misc packages
