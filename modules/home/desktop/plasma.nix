@@ -101,6 +101,11 @@
     window-padding-y = 10;
   };
 
+  xdg.configFile."starship.toml".source = pkgs.fetchurl {
+    url = "https://github.com/starship/starship/blob/v1.23.0/docs/public/presets/toml/pastel-powerline.toml";
+    hash = lib.fakeHash;
+  };
+
   # misc packages
   home.packages = with pkgs.kdePackages; [
     yakuake
