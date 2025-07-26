@@ -69,11 +69,11 @@ in
 
   environment.systemPackages = with pkgs; [
     (writeShellScriptBin "night2-activate" ''
-      sudo nix run /etc/night2#activate
+      nix run /etc/night2#activate
     '')
 
     (writeShellScriptBin "night2-switch" ''
-      sudo nh os switch
+      nh os switch
     '')
   ];
 }
