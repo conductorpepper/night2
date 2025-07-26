@@ -1,6 +1,11 @@
-{ flake, pkgs, ... }:
+{
+  flake,
+  config,
+  pkgs,
+  ...
+}:
 let
-  inherit (flake) config inputs;
+  inherit (flake) inputs;
 in
 {
   imports = [
@@ -46,7 +51,7 @@ in
 
     trusted-users = [
       "root"
-      config.me.username
+      flake.config.me.username
     ];
   };
 
@@ -60,20 +65,29 @@ in
 
   programs.nh = {
     enable = true;
-    flake = /etc/night2;
+    flake = "/etc/night2";
     clean = {
       enable = true;
       extraArgs = "--keep-since 7d --keep 3";
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    (writeShellScriptBin "night2-activate" ''
-      nix run /etc/night2#activate
-    '')
+  environment.systemPackages =
+    with pkgs;
+    let
+      nh =
+        sub:
+        (writeShellScriptBin "night2-${sub}" ''
+          nh os ${sub} ${config.programs.nh.flake}
+        '');
+    in
+    [
+      (writeShellScriptBin "night2-activate" ''
+        nix run ${config.programs.nh.flake}#activate
+      '')
 
-    (writeShellScriptBin "night2-switch" ''
-      nh os switch
-    '')
-  ];
+      (nh "switch")
+      (nh "boot")
+      (nh "test")
+    ];
 }
