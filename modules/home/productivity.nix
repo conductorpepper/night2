@@ -101,6 +101,7 @@ in
 
       # desktop things
       app2unit
+      trash-cli
     ];
 
   home.shellAliases = {
