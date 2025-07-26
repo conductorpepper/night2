@@ -52,21 +52,28 @@ in
 
   # garbage collection
   nix = {
-    gc = {
-      automatic = true;
-      dates = "Mon *-*-* 12:00:00";
-      options = "--delete-older-than 14d";
-    };
-
     optimise = {
       automatic = true;
-      dates = "Mon *-*-* 14:00:00";
+      dates = "weekly";
+    };
+  };
+
+  programs.nh = {
+    enable = true;
+    flake = /etc/night2;
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 7d --keep 3";
     };
   };
 
   environment.systemPackages = with pkgs; [
     (writeShellScriptBin "night2-activate" ''
       sudo nix run /etc/night2#activate
+    '')
+
+    (writeShellScriptBin "night2-switch" ''
+      sudo nh os switch
     '')
   ];
 }
