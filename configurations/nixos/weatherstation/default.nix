@@ -14,6 +14,7 @@
   bundles.tailscale.key = "tskey-auth-k2dr2qArg521CNTRL-RE6UF8ETaC9AdifA3BnnC9UmRXeaRxZtY"; # single-use
   bundles.power.enable = true;
   bundles.docker.enable = true;
+  bundles.krdp.enable = true;
   virtualisation.docker.storageDriver = "btrfs";
   utils.exssd.enable = true;
   utils.monitors.monitors = [
