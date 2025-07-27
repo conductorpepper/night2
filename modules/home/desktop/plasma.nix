@@ -39,7 +39,7 @@
               (app "systemsettings")
               (preferred "filemanager")
               (preferred "browser")
-              (preferred "mailer")
+              (app "thunderbird")
               (app "vesktop")
               (app "dev.zed.Zed")
             ];

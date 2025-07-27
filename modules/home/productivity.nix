@@ -66,8 +66,6 @@ in
 
       # mail
       thunderbird
-      tutanota-desktop # ...doesn't open
-      protonmail-desktop # ...also doesn't open
 
       # pass
       keepassxc
