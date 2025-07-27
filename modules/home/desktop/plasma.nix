@@ -24,6 +24,31 @@
     {
       screen = "all";
       hiding = "autohide"; # try to avoid burn in on the second monitor
+      widgets = [
+        "org.kde.plasma.kickoff"
+        "org.kde.plasma.pager"
+        {
+          name = "org.kde.plasma.icontasks";
+          config.General.launcher =
+            let
+              preferred = name: "preferred://${name}";
+              app = name: "applications:${name}.desktop";
+              # kdeapp = name: (app "org.kde.${name}");
+            in
+            [
+              (app "systemsettings")
+              (preferred "filemanager")
+              (preferred "browser")
+              (preferred "mailer")
+              (app "vesktop")
+              (app "dev.zed.Zed")
+            ];
+        }
+        "org.kde.plasma.marginsseparator"
+        "org.kde.plasma.systemtray"
+        "org.kde.plasma.digitalclock"
+        "org.kde.plasma.showdesktop"
+      ];
     }
   ];
 
