@@ -29,7 +29,7 @@
         "org.kde.plasma.pager"
         {
           name = "org.kde.plasma.icontasks";
-          config.General.launcher =
+          config.General.launchers =
             let
               preferred = name: "preferred://${name}";
               app = name: "applications:${name}.desktop";
