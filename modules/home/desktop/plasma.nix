@@ -23,7 +23,7 @@
   programs.plasma.panels = [
     {
       screen = "all";
-      hiding = "autohide"; # try to avoid burn in on the second monitor
+      hiding = "dodgewindows"; # try to avoid burn in on the second monitor
       widgets = [
         "org.kde.plasma.kickoff"
         "org.kde.plasma.pager"
