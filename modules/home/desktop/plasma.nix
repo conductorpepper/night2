@@ -23,6 +23,7 @@
   programs.plasma.panels = [
     {
       screen = "all";
+      hiding = "autohide"; # try to avoid burn in on the second monitor
     }
   ];
 

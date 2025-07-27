@@ -1,7 +1,5 @@
 # night2
 
-A refactor of my previous configuration for simplicity and cleanliness.
-
 ## Hosts
 
 | Host                | System             | Notes               |
@@ -47,3 +45,5 @@ and they help with understanding some stuff.
 * [NotAShelf/nyx](https://github.com/NotAShelf/nyx)
 * [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
 * [ryan4yin/nix-config](https://github.com/ryan4yin/nix-config)
+
+I used [nixos-unified](https://nixos-unified.org/) for this configuration, which handles autowiring and some other things.
