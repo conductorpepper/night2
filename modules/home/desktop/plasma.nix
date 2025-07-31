@@ -82,6 +82,55 @@
     };
   };
 
+  programs.plasma.window-rules = [
+    # fix vinegar on wine virtual desktop not keeping focus
+    {
+      description = "steam_proton; vinegar fix";
+      match = {
+        window-class = {
+          value = "steam_proton";
+          type = "exact";
+          match-whole = false;
+        };
+        title = {
+          value = "Wine Desktop";
+          type = "exact";
+        };
+      };
+      apply = {
+        acceptfocus = {
+          value = true;
+          apply = "force";
+        };
+      };
+    }
+
+    # picture-in-picture
+    {
+      description = "Picture-in-Picture";
+      match = {
+        window-class = {
+          value = "zen zen";
+          type = "substring";
+        };
+        title = {
+          value = "Picture-in-Picture";
+          type = "exact";
+        };
+      };
+      apply = {
+        desktops = {
+          value = "\\0"; # \\0 in kwinrulesrc
+          apply = "initially";
+        };
+        above = {
+          value = true;
+          apply = "force";
+        };
+      };
+    }
+  ];
+
   programs.konsole = {
     enable = true;
     defaultProfile = "Nushell";
