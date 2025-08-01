@@ -82,6 +82,8 @@ in
         '');
     in
     [
+      nix-output-monitor
+
       (writeShellScriptBin "night2-activate" ''
         nix run ${config.programs.nh.flake}#activate
       '')
