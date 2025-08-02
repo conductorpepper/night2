@@ -33,20 +33,6 @@
   qt.enable = true;
   qt.platformTheme = "kde6";
 
-  # xdg portal
-  xdg.portal.enable = true;
-  xdg.portal.wlr.enable = true;
-  xdg.portal.extraPortals = with pkgs; [
-    xdg-desktop-portal-gtk
-  ];
-  xdg.portal.config = {
-    common = {
-      default = [
-        "gtk"
-      ];
-    };
-  };
-
   # conf
   programs.xfconf.enable = true;
   programs.dconf.enable = true;
