@@ -171,7 +171,6 @@
   };
 
   programs.ghostty.settings = {
-    font-family = "JetBrainsMono Nerd Font";
     window-padding-x = 10;
     window-padding-y = 10;
   };
