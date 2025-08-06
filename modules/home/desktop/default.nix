@@ -1,7 +1,6 @@
 {
   imports = [
     ./themes/godot.nix
-    ./aesthetic.nix
     ./plasma.nix
   ];
 
