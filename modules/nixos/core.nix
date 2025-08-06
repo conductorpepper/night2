@@ -2,13 +2,18 @@
   flake,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (flake) config;
-in {
+in
+{
   # bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = ["ntfs" "btrfs"];
+  boot.supportedFilesystems = [
+    "ntfs"
+    "btrfs"
+  ];
 
   # internationalisation
   i18n.defaultLocale = "en_US.UTF-8";
@@ -63,7 +68,7 @@ in {
 
   # shell
   programs.zsh.enable = true;
-  environment.pathsToLink = ["/share/zsh"];
+  environment.pathsToLink = [ "/share/zsh" ];
 
   environment.shells = with pkgs; [
     nushell
@@ -77,7 +82,5 @@ in {
     just
 
     killall
-
-    npins
   ];
 }

@@ -32,5 +32,6 @@
     statix
     nix-prefetch
     nix-melt
+    npins
   ];
 }

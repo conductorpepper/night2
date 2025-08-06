@@ -1,5 +1,12 @@
-{ pkgs, ... }:
+{ flake, pkgs, ... }:
+let
+  inherit (flake) inputs;
+in
 {
+  imports = [
+    inputs.stylix.nixosModules.stylix
+  ];
+
   # dewm
   services.desktopManager.plasma6 = {
     enable = true;
@@ -42,6 +49,9 @@
 
   # polkit
   security.polkit.enable = true;
+
+  # theming
+  stylix.enable = false; # temporarily false
 
   # utility packages
   environment.systemPackages = with pkgs; [
