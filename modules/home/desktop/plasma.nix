@@ -159,14 +159,16 @@
     ];
 
     userSettings = {
-      theme = {
-        mode = "system";
-      };
+      # HANDLED BY STYLIX
+      # theme = {
+      #   mode = "system";
+      # };
 
       icon_theme = "Base Charmed Icons";
 
-      ui_font_size = 16;
-      buffer_font_size = 16;
+      # HANDLED BY STYLIX
+      # ui_font_size = 16;
+      # buffer_font_size = 16;
     };
   };
 
@@ -175,10 +177,11 @@
     window-padding-y = 10;
   };
 
-  xdg.configFile."starship.toml".source = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/starship/starship/refs/tags/v1.23.0/docs/public/presets/toml/pastel-powerline.toml";
-    hash = "sha256-9ljlFPr9IkQ1Ri1Y29EMj4qMHeW1FV3ltq7spenC+mc=";
-  };
+  # HANDLED BY STYLIX
+  # xdg.configFile."starship.toml".source = pkgs.fetchurl {
+  #   url = "https://raw.githubusercontent.com/starship/starship/refs/tags/v1.23.0/docs/public/presets/toml/pastel-powerline.toml";
+  #   hash = "sha256-9ljlFPr9IkQ1Ri1Y29EMj4qMHeW1FV3ltq7spenC+mc=";
+  # };
 
   # misc packages
   home.packages = with pkgs.kdePackages; [
