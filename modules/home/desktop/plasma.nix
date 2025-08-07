@@ -166,8 +166,8 @@
 
       icon_theme = "Base Charmed Icons";
 
-      ui_font_size = lib.mkForce 16;
-      buffer_font_size = lib.mkForce 16;
+      ui_font_size = lib.mkForce 14;
+      buffer_font_size = lib.mkForce 14;
     };
   };
 
