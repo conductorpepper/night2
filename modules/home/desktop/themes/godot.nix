@@ -9,8 +9,8 @@
         source = pkgs.fetchFromGitHub {
           owner = "passivestar";
           repo = "godot-minimal-theme";
-          rev = "2.1.0";
-          hash = "sha256-+tip0xye1S3X0cZRsMI14s+1XM4tHNiSptA4nGGqoZY=";
+          rev = "2.3.3";
+          hash = "sha256-cdWeuM/VjhC0XyUr5vCfrgepbG9+QPIhZC7RoGQXcds=";
         };
       };
       ${confine "inter"} = {

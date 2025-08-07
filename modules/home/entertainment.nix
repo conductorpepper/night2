@@ -85,6 +85,10 @@ in
         enabled = true;
         settingsLocation = "aboveNitro";
       };
+      GameActivityToggle = {
+        enabled = true;
+        oldIcon = false;
+      };
     }
     // (builtins.listToAttrs (
       builtins.map
@@ -135,7 +139,6 @@ in
     with pkgs;
     [
       # chat
-      vesktop
       signal-desktop
       deltachat-desktop
 

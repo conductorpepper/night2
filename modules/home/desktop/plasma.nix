@@ -166,9 +166,8 @@
 
       icon_theme = "Base Charmed Icons";
 
-      # HANDLED BY STYLIX
-      # ui_font_size = 16;
-      # buffer_font_size = 16;
+      ui_font_size = lib.mkForce 16;
+      buffer_font_size = lib.mkForce 16;
     };
   };
 
