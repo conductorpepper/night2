@@ -1,5 +1,6 @@
 {
   flake,
+  config,
   pkgs,
   ...
 }:
@@ -20,6 +21,21 @@ in
       obs-pipewire-audio-capture
       obs-vkcapture
     ];
+  };
+
+  programs.anki = {
+    enable = true;
+    addons = with pkgs.ankiAddons; [
+      anki-connect
+    ];
+    sync = {
+      autoSync = true;
+      autoSyncMediaMinutes = 15;
+      networkTimeout = 60;
+      syncMedia = true;
+      usernameFile = config.sops.secrets."anki/email".path;
+      passwordFile = config.sops.secrets."anki/sync".path;
+    };
   };
 
   home.packages =
@@ -77,7 +93,7 @@ in
       yt-dlp
 
       # learning
-      anki-bin
+      # anki-bin
 
       # reading
       kdePackages.okular
