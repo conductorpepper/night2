@@ -1,6 +1,10 @@
-{ flake, pkgs, ... }:
+{
+  flake,
+  pkgs,
+  ...
+}:
 let
-  inherit (flake) inputs config;
+  inherit (flake) inputs;
   inherit (inputs) self;
 in
 {
@@ -10,13 +14,18 @@ in
 
   sops.defaultSopsFile = "${self}/secrets/secrets.yaml";
   sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "/home/${config.me.username}/.config/sops/age/keys.txt";
+  sops.age.keyFile = "/home/${flake.config.me.username}/.config/sops/age/keys.txt";
   sops.secrets = {
-    example-key = { };
-    "myservice/my_subdir/my_secret" = { };
-    "anki/secret" = { };
+    # NOTE: this feels wrong.
+    "anki/username" = {
+      owner = flake.config.me.username;
+    };
+    "anki/secret" = {
+      owner = flake.config.me.username;
+    };
   };
 
+  # and then useful utilities
   environment.systemPackages = with pkgs; [
     sops
   ];
