@@ -12,9 +12,9 @@
   ];
 
   programs.plasma.enable = true;
-  programs.plasma.workspace.colorScheme = "BreezeDark";
-  programs.plasma.workspace.theme = "breeze-dark";
-  programs.plasma.workspace.lookAndFeel = "org.kde.breezedark.desktop";
+  # programs.plasma.workspace.colorScheme = "BreezeDark";
+  # programs.plasma.workspace.theme = "breeze-dark";
+  # programs.plasma.workspace.lookAndFeel = "org.kde.breezedark.desktop";
   programs.plasma.workspace.cursor = {
     size = 24;
     theme = "Breeze Dark";

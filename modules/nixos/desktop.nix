@@ -36,10 +36,6 @@ in
     noto-fonts-cjk-serif
   ];
 
-  # qt
-  qt.enable = true;
-  qt.platformTheme = "kde6";
-
   # conf
   programs.xfconf.enable = true;
   programs.dconf.enable = true;

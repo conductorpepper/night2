@@ -1,7 +1,7 @@
 keys:
-  - &primary age1t2v543smxhpsq2tp55xh63zjxxu6vqph7q69lcddk08ug8krdcts4226l7
+  - &weatherstation age1t2v543smxhpsq2tp55xh63zjxxu6vqph7q69lcddk08ug8krdcts4226l7
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
       - age:
-          - *primary
+          - *weatherstation
