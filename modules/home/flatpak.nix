@@ -1,4 +1,5 @@
-{flake, ...}: {
+{ flake, ... }:
+{
   imports = [
     flake.inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
@@ -8,6 +9,7 @@
     "org.vinegarhq.Sober"
     "org.vinegarhq.Vinegar"
     "com.github.tchx84.Flatseal"
+    "com.voxdsp.TuxFishing"
   ];
 
   services.flatpak.update.auto = {
