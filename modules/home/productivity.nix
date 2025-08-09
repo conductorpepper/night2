@@ -23,6 +23,26 @@ in
         Locked = true;
         Cryptomining = true;
         Fingerprinting = true;
+        Category = "strict";
+      };
+
+      Preferences = { };
+
+      ExtensionSettings = {
+        "uBlock0@raymondhill.net" = {
+          installation_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+        };
+        "keepassxc-browser@keepassxc.org" = {
+          installation_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi";
+        };
+        "{cb31ec5d-c49a-4e5a-b240-16c767444f62}" = {
+          # indie wiki buddy
+          installation_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/indie-wiki-buddy/latest.xpi";
+        };
+        # TODO: sponsorblock, vimium, yomitan, return youtube dislikes, plasma integration
       };
     }
     // (builtins.listToAttrs (
