@@ -28,22 +28,27 @@ in
 
       Preferences = { };
 
-      ExtensionSettings = {
-        "uBlock0@raymondhill.net" = {
-          installation_mode = "force_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-        };
-        "keepassxc-browser@keepassxc.org" = {
-          installation_mode = "force_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi";
-        };
-        "{cb31ec5d-c49a-4e5a-b240-16c767444f62}" = {
-          # indie wiki buddy
-          installation_mode = "force_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/indie-wiki-buddy/latest.xpi";
-        };
-        # TODO: sponsorblock, vimium, yomitan, return youtube dislikes, plasma integration
-      };
+      # https://addons.mozilla.org/api/v5/addons/addon/NAME/
+      ExtensionSettings =
+        let
+          extension = name: guid: {
+            inherit name;
+            value = {
+              installation_mode = "force_installed";
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/${name}/latest.xpi";
+            };
+          };
+        in
+        builtins.listToAttrs [
+          (extension "ublock-origin" "uBlock0@raymondhill.net")
+          (extension "keepassxc-browser" "keepassxc-browser@keepassxc.org")
+          (extension "indie-wiki-buddy" "{cb31ec5d-c49a-4e5a-b240-16c767444f62}")
+          (extension "vimium-ff" "{d7742d87-e61d-4b78-b8a1-b469842139fa}")
+          (extension "yomitan" "{6b733b82-9261-47ee-a595-2dda294a4d08}")
+          (extension "sponsorblock" "sponsorBlocker@ajay.app")
+          (extension "return-youtube-dislikes" "{762f9885-5a13-4abd-9c77-433dcd38b8fd}")
+          (extension "plasma-integration" "plasma-browser-integration@kde.org")
+        ];
     }
     // (builtins.listToAttrs (
       builtins.map
