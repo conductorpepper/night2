@@ -11,7 +11,5 @@
     x11.enable = true;
   };
 
-  stylix.targets = {
-    zen-browser.enable = false;
-  };
+  stylix.targets = { };
 }
